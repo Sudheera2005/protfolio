@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudheera Perera</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <span class="hamburger" onclick="openNav()">&#9776;</span>
+            <a href="#home" id="logo_img" class="logo"><img class="logo_img" src="./Image/logo.png" alt="Logo"></a>
+        </div>
+        <nav  id="mySidenav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <footer>
+        <p class="footer">© 2025 Sudheera Perera. All rights reserved.</p>
+    </footer>    
+    <div id="mobileMenu" class="mobile-nav">
+        <button class="close-btn" onclick="closeNav()">&times;</button>
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#about" onclick="closeNav()">About</a>
+        <a href="#portfolio" onclick="closeNav()">Portfolio</a>
+        <a href="#services" onclick="closeNav()">Services</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
+    </div>
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="home_content">
+                <div class="text1 text">
+                    <h1>Hello, I'm</h1>
+                    <h1 id="typing-text">&nbsp;</h1><br>
+                    <a href="./CV/Sudheera Perera - CV.pdf" target="_blank"><button class="download">Download CV</button></a><br>
+                    <div class="home_icon">
+                        <a href="https://github.com/Sudheera2005" target="_blank"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
+                    </div>
+                </div>
+                <div class="text2"><img class="main_img" src="./Image/main.jpg" alt="Profile Picture"></div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about">
+            <h1>About Me</h1>
+            <div class="about_content">
+                <!-- Profile Image -->
+                <div class="about_image">
+                    <img src="./Image/about.jpg" alt="About Image">
+                </div>
+    
+                <!-- Buttons (Vertical Layout) -->
+                <div class="buttons">
+                    <button class="tab active" onclick="showTab(event, 'skills')">Skills</button>
+                    <div class="dropdown">
+                        <button class="tab" onclick="toggleDropdown(event)">Education</button>
+                        <div class="dropdown-content">
+                            <a href="./education.html"><button class="drop_tab" onclick="showTab(event, 'education')">Education</button></a>
+                            <a href="./certifications.html"><button class="drop_tab" onclick="showTab(event, 'certifications')">Certifications</button></a>
+                        </div>
+                    </div>
+                    <button class="tab" onclick="showTab(event, 'experience')">Experience</button>
+                </div>
+    
+                <!-- About Details -->
+                <div class="about_details">
+                    <p>
+                        "Driven by a fascination with cybersecurity, networking, and software, I'm a first-year IT student eager to explore technology's vast potential. Robotics and specialized software also ignite my curiosity. I'm committed to continuous learning, building a solid foundation for a future in the dynamic tech landscape."
+                    </p>
+    
+                    <!-- Skills Section (Default Active) -->
+                    <div id="skills" class="tab-content active">
+                        <div class="skills-section">
+                            <div class="skill">
+                                <div class="circle progress" data-percent="90">
+                                    <img src="./Image/python.png" alt="Python">
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="circle progress" data-percent="85">
+                                    <img src="./Image/html-5.png" alt="HTML">
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="circle progress" data-percent="80">
+                                    <img src="./Image/css-3.png" alt="CSS">
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="circle progress" data-percent="80">
+                                    <img src="./Image/js.png" alt="JS">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Experience Section -->
+                    <div id="experience" class="tab-content">
+                        <div class="experience-content">
+                            <div class="experience-item">
+                                <h3>Experience 1</h3>
+                                <p>Details about experience 1...</p>
+                            </div>
+                            <div class="experience-item">
+                                <h3>Experience 2</h3>
+                                <p>Details about experience 2...</p>
+                            </div>
+                            <div class="experience-item">
+                                <h3>Experience 3</h3>
+                                <p>Details about experience 3...</p>
+                            </div>
+                            <div class="experience-item">
+                                <h3>Experience 4</h3>
+                                <p>Details about experience 4...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h1>Last Projects</h1>
+            <div class="portfolio_content">
+                <!-- Project 1 -->
+                <div class="projects active">
+                    <div class="project-info">
+                        <h3 class="project-number">01</h3>
+                        <h2 class="project-title">Project Name 1</h2>
+                        <p class="project-details">Details about the first project.</p>
+                    </div>
+                    <div class="media-container">
+                        <video class="project-video" autoplay muted loop>
+                            <source src="./Image/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <img src="./Image/web1.jpg" alt="Project 1 Image 1" class="project-image hidden">
+                        <img src="./Image/web2.jpg" alt="Project 1 Image 2" class="project-image hidden">
+                    </div>
+                </div>
+    
+                <!-- Project 2 -->
+                <div class="projects">
+                    <div class="project-info">
+                        <h3 class="project-number">02</h3>
+                        <h2 class="project-title">Project Name 2</h2>
+                        <p class="project-details">Details about the second project.</p>
+                    </div>
+                    <div class="media-container">
+                        <video class="project-video" autoplay muted loop>
+                            <source src="./Image/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <img src="./Image/web1.jpg" alt="Project 2 Image 1" class="project-image hidden">
+                        <img src="./Image/web2.jpg" alt="Project 2 Image 2" class="project-image hidden">
+                    </div>
+                </div>
+    
+                <!-- Project 3 -->
+                <div class="projects">
+                    <div class="project-info">
+                        <h3 class="project-number">03</h3>
+                        <h2 class="project-title">Project Name 3</h2>
+                        <p class="project-details">Details about the third project.</p>
+                    </div>
+                    <div class="media-container">
+                        <video class="project-video" autoplay muted loop>
+                            <source src="./Image/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <img src="./Image/web1.jpg" alt="Project 3 Image 1" class="project-image hidden">
+                        <img src="./Image/web2.jpg" alt="Project 3 Image 2" class="project-image hidden">
+                    </div>
+                </div>
+    
+                <!-- Navigation Arrows -->
+                <div class="arrows">
+                    <button id="prev-btn">&#10094;</button>
+                    <button id="next-btn">&#10095;</button>
+                </div>
+            </div>
+        </section>
+        <!-- Services Section -->
+        <section id="services">
+            <p class="cna">What can I do for you</p> 
+            <h1>Services</h1>
+        
+            <div class="services_content">
+                <div>
+                    <h2>Web Development</h2>
+                    <p class="description">Struggling with a slow or outdated website? I provide custom web development solutions to optimize performance and enhance functionality. Let's solve your web challenges together.</p>
+                    <a href="#contact">
+                        <button class="contact_me_button">Contact Me</button>
+                    </a>
+                </div>
+        
+                <div>
+                    <h2>Web Design</h2>
+                    <p class="description">Need a website that reflects your brand's personality and resonates with your target audience? I specialize in creating modern, user-centered designs. Reach out to bring your vision to life.</p>
+                    <a href="#contact">
+                        <button class="contact_me_button">Contact Me</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Me Section -->
+        <section id="contact">
+            <div class="contact_content">
+                <div>
+                    <h1>Contact Me</h1>
+                    <form id="contact-form">
+                        <input type="text" id="name" name="firstname" placeholder="Your name.." required>
+                        <input type="email" id="email" name="email" placeholder="Your email.." required>
+                        <textarea id="message" name="message" placeholder="Write your message.." style="height:170px" required></textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <p id="responseMessage"></p>
+                </div>
+        
+                <div>
+                    <div class="icon">
+                        <a href="tel:+94741121785">
+                            <i class='bx bx-phone'></i>
+                            <span class="icon_text">+94 741 121 785</span>
+                        </a><br>
+        
+                        <a href="mailto:sudheera2005perera@gmail.com">
+                            <i class='bx bxl-gmail'></i>
+                            <span  class="icon_text">sudheera2005perera@gmail.com</span>
+                        </a><br>
+        
+                        <a href="https://github.com/Sudheera2005" target="_blank">
+                            <i class="bx bxl-github"></i><span class="icon_text">GitHub</span>
+                        </a>
+        
+                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank">
+                            <i class="bx bxl-linkedin-square"></i><span class="icon_text">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p class="footer">© 2025 Sudheera Perera. All rights reserved.</p>
+        </footer>    
+        
+        
+    </main>
+    <script src="./scripts/main.js"></script>
+    
+</body>
+</html>
