@@ -6,6 +6,8 @@
     <title>Sudheera Perera</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
 
 </head>
 <body>
@@ -53,20 +55,20 @@
                         </div>
                     </div>
                     <div class="glow-container">
-                        <img class="main_img_glow" src="./Image/uh.jpg" alt="Profile Picture">
+                        <img class="main_img_glow" src="./Image/main.jpg" alt="Profile Picture">
                     </div>
                 </div>
             </section>
             <!-- About Section -->
-            <section id="about">
-                <div class="about-container">
+            <section id="about" >
+                <div class="about-container" >
                   <h1>About Me</h1>
                   <div class="about-content">
             
                     <!-- Profile Card -->
                     <div class="profile-card">
                       <div class="profile-img-container">
-                        <img src="./Image/main.jpg" alt="Sudheera Perera Profile Photo" class="profile-img">
+                        <img src="./Image/About.jpg" alt="Sudheera Perera Profile Photo" class="profile-img">
                       </div>
                       <div class="available-tag">Available for work</div>
                       <h2>Hello, I'm <span class="highlight">Sudheera Perera</span></h2>
@@ -181,27 +183,24 @@
                 
             </section>
             <!-- Portfolio Section -->
-            <section id="portfolio">
+            <section id="portfolio" data-aos="fade-up">
                 <h1>Last Projects</h1>
                 <div class="portfolio_content">
               
                   <!-- Card 1 -->
                   <div class="project_card">
                     <div class="project_image_container">
-                      <img src="./Image/e4df0c8b-d525-4210-bc7f-eff941a2546c.png" alt="Project 1" class="project_image">
+                      <img src="./Image/profolio.png" alt="Project 1" class="project_image" style="width: 100%;">
                       <div class="project_title_overlay">
-                        <h3 class="project_title">AI Health Tracker</h3>
+                        <h3 class="project_title">My Portfolio</h3>
                       </div>
                     </div>
                     <div class="project_details">
-                      <p>An AI-powered Health and Exercise Tracker offering virtual physiotherapy consultations and telemedicine services.</p>
+                      <p>A static and interactive portfolio built with HTML, CSS, and JavaScript, featuring smooth animations to showcase web development skills and creative design.</p>
                       <div class="project_tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">MediaPipe</span>
-                        <span class="tag">OpenCV</span>
-                        <span class="tag">TensorFlow</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Vanilla Js</span>
                       </div>
                       <a href="https://github.com/Sudheera2005" target="_blank" class="project_link">
                         View on GitHub <i class='bx bx-link-external'></i>
@@ -212,20 +211,18 @@
                   <!-- Card 2 -->
                   <div class="project_card">
                     <div class="project_image_container">
-                      <img src="./Image/uh.jpg" alt="Project 2" class="project_image">
+                      <img src="./Image/grtto gaming.png" alt="Project 2" class="project_image">
                       <div class="project_title_overlay">
-                        <h3 class="project_title">Feedback Classifier</h3>
+                        <h3 class="project_title">Dynamic Gaming Store with Online Ordering System</h3>
                       </div>
                     </div>
                     <div class="project_details">
-                      <p>A Flask-based web app to classify feedback from virtual physiotherapy sessions using ML techniques.</p>
+                      <p>An interactive gaming retail website using HTML, CSS, JS, and JSON, featuring a real-time cart, dynamic product rendering, and responsive ordering functionality.</p>
                       <div class="project_tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">NLTK</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Matplotlib</span>
-                        <span class="tag">Pandas</span>
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">Vanilla Js</span>
+                        <span class="tag">JSON</span>
                       </div>
                       <a href="https://github.com/Sudheera2005" target="_blank" class="project_link">
                         View on GitHub <i class='bx bx-link-external'></i>
@@ -260,7 +257,7 @@
         <!-- Services Section -->
         
         <!-- Contact Me Section -->
-        <section id="contact">
+        <section id="contact" data-aos="fade-down">
             <div class="contact_content">
                 <div>
                     <h1>Contact Me</h1>
@@ -303,6 +300,10 @@
         
     </main>
     <script src="./scripts/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     
 </body>
 </html>
