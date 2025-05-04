@@ -11,170 +11,220 @@ function closeNav() {
     document.body.style.backgroundColor = "#0D0D0D";
 }
 // home section
-document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.getElementById("typing-text");
-    const textArray = ["Sudheera Perera","A student", "A Developer", "A Programer"];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-    function typeEffect() {
-        let currentText = textArray[textIndex];
-        if (isDeleting) {
-            textElement.textContent = currentText.substring(0, charIndex--);
-        } else {
-            textElement.textContent = currentText.substring(0, charIndex++);
+        let particles = [];
+        const particleCount = window.innerWidth < 768 ? 50 : 100;
+        const mouse = { x: null, y: null, radius: 150 };
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.baseSize = this.size;
+                this.density = (Math.random() * 30) + 1;
+                this.color = `hsl(${Math.random() * 60 + 330}, 100%, 50%)`;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                // Mouse interaction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouse.radius) {
+                    this.size = this.baseSize * 2;
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+                    
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.size > this.baseSize) {
+                        this.size -= 0.1;
+                    }
+                }
+
+                // Movement
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y < 0 || this.y > canvas.height) {
+                    this.speedY = -this.speedY;
+                }
+
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                this.draw();
+            }
         }
 
-        if (!isDeleting && charIndex === currentText.length + 1) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1000);
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % textArray.length;
-            setTimeout(typeEffect, 500);
-        } else {
-            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
         }
-    }
 
-    typeEffect();
-});
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            
+            connect();
+            requestAnimationFrame(animate);
+        }
 
-// About me
-// Function to switch tabs
-function showTab(event, tabId) {
-    // Hide all tab contents
-    document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+        function connect() {
+            let opacity = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = Math.sqrt(
+                        Math.pow(particles[a].x - particles[b].x, 2) + 
+                        Math.pow(particles[a].y - particles[b].y, 2)
+                    );
+                    
+                    if (distance < 100) {
+                        opacity = 1 - (distance / 100);
+                        ctx.strokeStyle = `rgba(255, 7, 58, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
 
-    // Remove active class from all tabs
-    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-
-     // Show selected tab content
-    document.getElementById(tabId).classList.add("active");
-
-    // Highlight active tab
-    if (event) {
-        event.currentTarget.classList.add("active");
-    }
-}
-
-// Function to toggle dropdown
-function toggleDropdown(event) {
-    const dropdownContent = event.currentTarget.nextElementSibling;
-    dropdownContent.style.display = dropdownContent.style.display === "flex" ? "none" : "flex";
-}
-
-// Animate Circular Progress Bars
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".circle").forEach(circle => {
-        let percent = circle.getAttribute("data-percent");
-        let degree = (percent / 100) * 360;
-            ircle.style.setProperty("--degree", degree + "deg");
-    });
-});
-
-// About me
-// Function to switch tabs
-function showTab(event, tabId) {
-    // Hide all tab contents
-    document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
-
-    // Remove active class from all tabs
-    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-
-     // Show selected tab content
-    document.getElementById(tabId).classList.add("active");
-
-    // Highlight active tab
-    if (event) {
-        event.currentTarget.classList.add("active");
-         }
-    }
-
-    // Function to toggle dropdown
-    function toggleDropdown(event) {
-        const dropdownContent = event.currentTarget.nextElementSibling;
-        dropdownContent.style.display = dropdownContent.style.display === "flex" ? "none" : "flex";
-    }
-
-    // Animate Circular Progress Bars
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".circle").forEach(circle => {
-            let percent = circle.getAttribute("data-percent");
-            let degree = (percent / 100) * 360;
-            circle.style.setProperty("--degree", degree + "deg");
+        window.addEventListener('mousemove', function(e) {
+            mouse.x = e.x;
+            mouse.y = e.y;
         });
-    });
+
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        window.addEventListener('mouseout', function() {
+            mouse.x = undefined;
+            mouse.y = undefined;
+        });
+
+        // Typing Effect
+        const textElement = document.getElementById("typing-text");
+        const textArray = ["Sudheera Perera", "A Developer", "A Programmer", "A Tech Enthusiast"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            let currentText = textArray[textIndex];
+            if (isDeleting) {
+                textElement.textContent = currentText.substring(0, charIndex--);
+            } else {
+                textElement.textContent = currentText.substring(0, charIndex++);
+            }
+
+            if (!isDeleting && charIndex === currentText.length + 1) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+
+        // Modern Vapor Effect
+        function createVapor() {
+            const container = document.querySelector('.glow-container');
+            const colors = [
+                'rgba(255, 7, 58, 0.7)',
+                'rgba(226, 43, 177, 0.6)',
+                'rgba(255, 255, 255, 0.5)',
+                'rgba(200, 220, 255, 0.4)'
+            ];
+
+            const vapor = document.createElement('div');
+            vapor.className = 'vapor';
+            
+            // Random properties
+            const size = Math.random() * 30 + 10;
+            const duration = Math.random() * 6 + 3;
+            const delay = Math.random() * 2;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const tx = (Math.random() - 0.5) * 100;
+            const ty = -(Math.random() * 100 + 50);
+            const scale = Math.random() * 3 + 1;
+            
+            vapor.style.width = `${size}px`;
+            vapor.style.height = `${size}px`;
+            vapor.style.background = color;
+            vapor.style.left = `50%`;
+            vapor.style.bottom = `0`;
+            vapor.style.setProperty('--tx', `${tx}px`);
+            vapor.style.setProperty('--ty', `${ty}px`);
+            vapor.style.setProperty('--scale', scale);
+            vapor.style.animation = `vapor-float ${duration}s ease-out ${delay}s forwards`;
+            
+            container.appendChild(vapor);
+            
+            // Remove element after animation completes
+            setTimeout(() => {
+                vapor.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // Start vapor effect
+        setInterval(createVapor, 300);
+
+        // Initialize everything
+        init();
+        animate();
+        typeEffect();
+// About me
+
 
 
  // Portfolio
 
-document.addEventListener("DOMContentLoaded", () => {
-    const projects = document.querySelectorAll(".projects");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    let currentProjectIndex = 0;
-
-    // Show first project initially
-    if (projects.length > 0) {
-        projects[currentProjectIndex].classList.add("active");
-    }
-
-    function showProject(index) {
-        projects.forEach((project, i) => {
-            project.classList.remove("active");
-            if (i === index) project.classList.add("active");
-        });
-    }
-
-    // Next Project
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            currentProjectIndex = (currentProjectIndex + 1) % projects.length;
-            showProject(currentProjectIndex);
-        });
-    }
-
-    // Previous Project
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-            currentProjectIndex = (currentProjectIndex - 1 + projects.length) % projects.length;
-            showProject(currentProjectIndex);
-        });
-    }
-
-    // Image Hover Effect
-    document.querySelectorAll(".media-container").forEach((container) => {
-        const video = container.querySelector(".project-video");
-        const images = container.querySelectorAll(".project-image");
-
-        if (video && images) {
-            container.addEventListener("mousemove", (event) => {
-                const { clientX } = event;
-                const { left, width } = container.getBoundingClientRect();
-                const mouseX = clientX - left;
-                const halfWidth = width / 2;
-
-                video.pause(); // Pause video on hover
-                images.forEach((img, index) => {
-                    if (mouseX < halfWidth) {
-                        img.classList.remove("hidden");
-                        img.style.opacity = index === 0 ? "1" : "0";
-                    } else {
-                        img.classList.remove("hidden");
-                        img.style.opacity = index === 1 ? "1" : "0";
-                    }
-                });
-            });
-
-            container.addEventListener("mouseleave", () => {
-                video.play(); // Resume video on mouse leave
-                images.forEach(img => img.classList.add("hidden"));
-            });
-        }
+ // Optional: Add any JavaScript interactions here if needed
+ document.querySelectorAll('.project_card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.querySelector('.project_title_overlay').style.opacity = '1';
+      card.querySelector('.project_title_overlay').style.transform = 'translateY(0)';
     });
-});
+    
+    card.addEventListener('mouseleave', () => {
+      card.querySelector('.project_title_overlay').style.opacity = '0';
+      card.querySelector('.project_title_overlay').style.transform = 'translateY(100%)';
+    });
+  });
 
 // Contact me
 const form = document.getElementById('contact-form');

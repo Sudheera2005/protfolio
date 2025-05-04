@@ -17,8 +17,8 @@
         <nav  id="mySidenav">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -29,189 +29,236 @@
         <button class="close-btn" onclick="closeNav()">&times;</button>
         <a href="#home" onclick="closeNav()">Home</a>
         <a href="#about" onclick="closeNav()">About</a>
+        <a href="#skills" onclick="closeNav()">Skills</a>
         <a href="#portfolio" onclick="closeNav()">Portfolio</a>
-        <a href="#services" onclick="closeNav()">Services</a>
         <a href="#contact" onclick="closeNav()">Contact</a>
     </div>
     <main>
         <!-- Home Section -->
-        <section id="home">
-            <div class="home_content">
-                <div class="text1 text">
-                    <h1>Hello, I'm</h1>
-                    <h1 id="typing-text">&nbsp;</h1><br>
-                    <a href="./CV/Sudheera Perera - CV.pdf" target="_blank"><button class="download">Download CV</button></a><br>
-                    <div class="home_icon">
-                        <a href="https://github.com/Sudheera2005" target="_blank"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-                    </div>
-                </div>
-                <div class="text2"><img class="main_img" src="./Image/main.jpg" alt="Profile Picture"></div>
-            </div>
-        </section>
-        <!-- About Section -->
-        <section id="about">
-            <h1>About Me</h1>
-            <div class="about_content">
-                <!-- Profile Image -->
-                <div class="about_image">
-                    <img src="./Image/about.jpg" alt="About Image">
-                </div>
+        <main>
+            <!-- Home Section -->
+            <canvas id="bgCanvas"></canvas>
+            <section id="home">
+                <div class="home_content">
+                    <div class="text1 text">
+                        <h1>Hello, I'm</h1>
+                        <h1 id="typing-text">&nbsp;</h1><br>
+                        <a href="./CV/Sudheera Perera - CV.pdf" target="_blank">
+                            <button class="download">Download CV</button>
+                        </a>
     
-                <!-- Buttons (Vertical Layout) -->
-                <div class="buttons">
-                    <button class="tab active" onclick="showTab(event, 'skills')">Skills</button>
-                    <div class="dropdown">
-                        <button class="tab" onclick="toggleDropdown(event)">Education</button>
-                        <div class="dropdown-content">
-                            <a href="./education.html"><button class="drop_tab" onclick="showTab(event, 'education')">Education</button></a>
-                            <a href="./certifications.html"><button class="drop_tab" onclick="showTab(event, 'certifications')">Certifications</button></a>
+                        <div class="home_icon">
+                            <a href="https://github.com/Sudheera2005" target="_blank"><i class='bx bxl-github'></i></a>
+                            <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
                         </div>
                     </div>
-                    <button class="tab" onclick="showTab(event, 'experience')">Experience</button>
+                    <div class="glow-container">
+                        <img class="main_img_glow" src="./Image/uh.jpg" alt="Profile Picture">
+                    </div>
                 </div>
-    
-                <!-- About Details -->
-                <div class="about_details">
-                    <p>
-                        "Driven by a fascination with cybersecurity, networking, and software, I'm a first-year IT student eager to explore technology's vast potential. Robotics and specialized software also ignite my curiosity. I'm committed to continuous learning, building a solid foundation for a future in the dynamic tech landscape."
-                    </p>
-    
-                    <!-- Skills Section (Default Active) -->
-                    <div id="skills" class="tab-content active">
-                        <div class="skills-section">
-                            <div class="skill">
-                                <div class="circle progress" data-percent="90">
-                                    <img src="./Image/python.png" alt="Python">
-                                </div>
-                            </div>
-                            <div class="skill">
-                                <div class="circle progress" data-percent="85">
-                                    <img src="./Image/html-5.png" alt="HTML">
-                                </div>
-                            </div>
-                            <div class="skill">
-                                <div class="circle progress" data-percent="80">
-                                    <img src="./Image/css-3.png" alt="CSS">
-                                </div>
-                            </div>
-                            <div class="skill">
-                                <div class="circle progress" data-percent="80">
-                                    <img src="./Image/js.png" alt="JS">
-                                </div>
-                            </div>
+            </section>
+            <!-- About Section -->
+            <section id="about">
+                <div class="about-container">
+                  <h1>About Me</h1>
+                  <div class="about-content">
+            
+                    <!-- Profile Card -->
+                    <div class="profile-card">
+                      <div class="profile-img-container">
+                        <img src="./Image/main.jpg" alt="Sudheera Perera Profile Photo" class="profile-img">
+                      </div>
+                      <div class="available-tag">Available for work</div>
+                      <h2>Hello, I'm <span class="highlight">Sudheera Perera</span></h2>
+                      <p class="subtext">Full Stack Developer & Cybersecurity Enthusiast</p>
+                      <div class="social-icons">
+                        <a href="https://github.com/Sudheera2005" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
+                      </div>
+                      <a href="#contact">
+                        <button class="contact-button">Connect with me</button>
+                      </a>
+                    </div>
+            
+                    <!-- Info Text -->
+                    <div class="info-section">
+                      <div class="text-block">
+                        <h2>About Me</h2>
+                        <p>
+                          I'm a tech enthusiast with a background in software engineering, cybersecurity, and networking.
+                          I enjoy building secure, user-friendly solutions using Python, web technologies, and IoT systems.
+                          I'm passionate about AI, data analysis, and creating real-world tech projects that make a difference.
+                        </p>
+                        </p>
+                      </div>
+            
+                      <div class="text-block">
+                        <h2>Background</h2>
+                        <div class="tag-list">
+                          <span class="tag">Strong IT foundation</span>
+                          <span class="tag">Leadership</span>
+                          <span class="tag">Networking Architecture</span>
+                          <span class="tag">Coding</span>
+                          <span class="tag">Team collaboration</span>
                         </div>
-                    </div>
-    
-                    <!-- Experience Section -->
-                    <div id="experience" class="tab-content">
-                        <div class="experience-content">
-                            <div class="experience-item">
-                                <h3>Experience 1</h3>
-                                <p>Details about experience 1...</p>
-                            </div>
-                            <div class="experience-item">
-                                <h3>Experience 2</h3>
-                                <p>Details about experience 2...</p>
-                            </div>
-                            <div class="experience-item">
-                                <h3>Experience 3</h3>
-                                <p>Details about experience 3...</p>
-                            </div>
-                            <div class="experience-item">
-                                <h3>Experience 4</h3>
-                                <p>Details about experience 4...</p>
-                            </div>
+                      </div>
+            
+                      <div class="text-block">
+                        <h2>Education</h2>
+                        <div class="tag-list">
+                          <a href="./education.html" class="tag">Education</a>
+                          <a href="./certifications.html" class="tag">Certifications</a>
                         </div>
+                      </div>
+            
+                      <div class="text-block">
+                        <h2>Hobbies</h2>
+                        <div class="tag-list">
+                          <span class="tag">Reading</span>
+                          <span class="tag">Watching films</span>
+                          <span class="tag">Traveling</span>
+                          <span class="tag">Photography</span>
+                          <span class="tag">Coding & learning new tech</span>
+                          <span class="tag">Driving</span>
+                        </div>
+                      </div>
+            
+                      <div class="text-block">
+                        <h2>Languages</h2>
+                        <div class="tag-list">
+                          <span class="tag">English (Fluent)</span>
+                          <span class="tag">Sinhala (Native)</span>
+                        </div>
+                      </div>
+            
+                      <div class="text-block">
+                        <h2>Technical Environment</h2>
+                        <div class="tag-list">
+                          <span class="tag">Linux (Primary OS)</span>
+                          <span class="tag">Windows</span>
+                          <span class="tag">Docker</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            <section id="skills">
+                <div class="compute_language">
+                    <h1>Skills & Technologies</h1>
+                    <div class="marquee">
+                      <div class="skills-track">
+                        <!-- Skills List (repeat for smooth scroll) -->
+                        <div class="skills"><i class='bx bxl-python'></i><p>Python</p></div>
+                        <div class="skills"><i class='bx bxl-html5'></i><p>HTML5</p></div>
+                        <div class="skills"><i class='bx bxl-css3'></i><p>CSS3</p></div>
+                        <div class="skills"><i class='bx bxl-javascript'></i><p>JavaScript</p></div>
+                        <div class="skills"><i class='bx bxl-react'></i><p>React</p></div>
+                        <div class="skills"><i class='bx bxl-nodejs'></i><p>Node.js</p></div>
+                        <div class="skills"><i class='bx bxs-file-json'></i><p>JSON</p></div>
+                        <div class="skills"><i class='bx bxl-git'></i><p>Git</p></div>
+                        <div class="skills"><i class='bx bxl-github'></i><p>GitHub</p></div>
+                        <div class="skills"><i class='bx bxl-linux'></i><p>Linux</p></div>
+                        <div class="skills"><i class='bx bxl-docker'></i><p>Docker</p></div>
+                        <div class="skills"><i class='bx bx-data'></i><p>SQL</p></div>
+                
+                        <!-- Duplicate for seamless scroll -->
+                        <div class="skills"><i class='bx bxl-python'></i><p>Python</p></div>
+                        <div class="skills"><i class='bx bxl-html5'></i><p>HTML5</p></div>
+                        <div class="skills"><i class='bx bxl-css3'></i><p>CSS3</p></div>
+                        <div class="skills"><i class='bx bxl-javascript'></i><p>JavaScript</p></div>
+                        <div class="skills"><i class='bx bxl-react'></i><p>React</p></div>
+                        <div class="skills"><i class='bx bxl-nodejs'></i><p>Node.js</p></div>
+                        <div class="skills"><i class='bx bxs-file-json'></i><p>JSON</p></div>
+                        <div class="skills"><i class='bx bxl-git'></i><p>Git</p></div>
+                        <div class="skills"><i class='bx bxl-github'></i><p>GitHub</p></div>
+                        <div class="skills"><i class='bx bxl-linux'></i><p>Linux</p></div>
+                        <div class="skills"><i class='bx bxl-docker'></i><p>Docker</p></div>
+                        <div class="skills"><i class='bx bx-data'></i><p>SQL</p></div>
+                      </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Portfolio Section -->
-        <section id="portfolio">
-            <h1>Last Projects</h1>
-            <div class="portfolio_content">
-                <!-- Project 1 -->
-                <div class="projects active">
-                    <div class="project-info">
-                        <h3 class="project-number">01</h3>
-                        <h2 class="project-title">Project Name 1</h2>
-                        <p class="project-details">Details about the first project.</p>
+                
+            </section>
+            <!-- Portfolio Section -->
+            <section id="portfolio">
+                <h1>Last Projects</h1>
+                <div class="portfolio_content">
+              
+                  <!-- Card 1 -->
+                  <div class="project_card">
+                    <div class="project_image_container">
+                      <img src="./Image/e4df0c8b-d525-4210-bc7f-eff941a2546c.png" alt="Project 1" class="project_image">
+                      <div class="project_title_overlay">
+                        <h3 class="project_title">AI Health Tracker</h3>
+                      </div>
                     </div>
-                    <div class="media-container">
-                        <video class="project-video" autoplay muted loop>
-                            <source src="./Image/video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <img src="./Image/web1.jpg" alt="Project 1 Image 1" class="project-image hidden">
-                        <img src="./Image/web2.jpg" alt="Project 1 Image 2" class="project-image hidden">
+                    <div class="project_details">
+                      <p>An AI-powered Health and Exercise Tracker offering virtual physiotherapy consultations and telemedicine services.</p>
+                      <div class="project_tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">MediaPipe</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">TensorFlow</span>
+                      </div>
+                      <a href="https://github.com/Sudheera2005" target="_blank" class="project_link">
+                        View on GitHub <i class='bx bx-link-external'></i>
+                      </a>
                     </div>
+                  </div>
+              
+                  <!-- Card 2 -->
+                  <div class="project_card">
+                    <div class="project_image_container">
+                      <img src="./Image/uh.jpg" alt="Project 2" class="project_image">
+                      <div class="project_title_overlay">
+                        <h3 class="project_title">Feedback Classifier</h3>
+                      </div>
+                    </div>
+                    <div class="project_details">
+                      <p>A Flask-based web app to classify feedback from virtual physiotherapy sessions using ML techniques.</p>
+                      <div class="project_tags">
+                        <span class="tag">Flask</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">NLTK</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Pandas</span>
+                      </div>
+                      <a href="https://github.com/Sudheera2005" target="_blank" class="project_link">
+                        View on GitHub <i class='bx bx-link-external'></i>
+                      </a>
+                    </div>
+                  </div>
+              
+                  <!-- Card 3 -->
+                  <div class="project_card">
+                    <div class="project_image_container">
+                      <img src="./Image/uh.jpg" alt="Project 3" class="project_image">
+                      <div class="project_title_overlay">
+                        <h3 class="project_title">Ticketing Platform</h3>
+                      </div>
+                    </div>
+                    <div class="project_details">
+                      <p>A scalable ticketing platform for real-time ticket availability and secure transactions.</p>
+                      <div class="project_tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">React.js</span>
+                        <span class="tag">WebSocket</span>
+                      </div>
+                      <a href="https://github.com/Sudheera2005" target="_blank" class="project_link">
+                        View on GitHub <i class='bx bx-link-external'></i>
+                      </a>
+                    </div>
+                  </div>
+              
                 </div>
-    
-                <!-- Project 2 -->
-                <div class="projects">
-                    <div class="project-info">
-                        <h3 class="project-number">02</h3>
-                        <h2 class="project-title">Project Name 2</h2>
-                        <p class="project-details">Details about the second project.</p>
-                    </div>
-                    <div class="media-container">
-                        <video class="project-video" autoplay muted loop>
-                            <source src="./Image/video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <img src="./Image/web1.jpg" alt="Project 2 Image 1" class="project-image hidden">
-                        <img src="./Image/web2.jpg" alt="Project 2 Image 2" class="project-image hidden">
-                    </div>
-                </div>
-    
-                <!-- Project 3 -->
-                <div class="projects">
-                    <div class="project-info">
-                        <h3 class="project-number">03</h3>
-                        <h2 class="project-title">Project Name 3</h2>
-                        <p class="project-details">Details about the third project.</p>
-                    </div>
-                    <div class="media-container">
-                        <video class="project-video" autoplay muted loop>
-                            <source src="./Image/video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <img src="./Image/web1.jpg" alt="Project 3 Image 1" class="project-image hidden">
-                        <img src="./Image/web2.jpg" alt="Project 3 Image 2" class="project-image hidden">
-                    </div>
-                </div>
-    
-                <!-- Navigation Arrows -->
-                <div class="arrows">
-                    <button id="prev-btn">&#10094;</button>
-                    <button id="next-btn">&#10095;</button>
-                </div>
-            </div>
-        </section>
+              </section>
         <!-- Services Section -->
-        <section id="services">
-            <p class="cna">What can I do for you</p> 
-            <h1>Services</h1>
         
-            <div class="services_content">
-                <div>
-                    <h2>Web Development</h2>
-                    <p class="description">Struggling with a slow or outdated website? I provide custom web development solutions to optimize performance and enhance functionality. Let's solve your web challenges together.</p>
-                    <a href="#contact">
-                        <button class="contact_me_button">Contact Me</button>
-                    </a>
-                </div>
-        
-                <div>
-                    <h2>Web Design</h2>
-                    <p class="description">Need a website that reflects your brand's personality and resonates with your target audience? I specialize in creating modern, user-centered designs. Reach out to bring your vision to life.</p>
-                    <a href="#contact">
-                        <button class="contact_me_button">Contact Me</button>
-                    </a>
-                </div>
-            </div>
-        </section>
         <!-- Contact Me Section -->
         <section id="contact">
             <div class="contact_content">
