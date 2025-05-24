@@ -1,0 +1,240 @@
+header {
+    background-color: #0D0D0D; /* Dark background */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 2px solid #444;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust logo size */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+
+
+footer {
+    background-color: #111; /* Dark background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    border-top: 2px solid #444; /* Optional border for separation */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+:root {
+    --primary: #ff073a;
+    --secondary: #e22bb1;
+    --dark: #0D0D0D;
+    --darker: #1a1a1a;
+    --text: #E2E8F0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--dark);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.certificates_content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.certificate-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    aspect-ratio: 1.414 / 1; /* Standard paper ratio */
+}
+
+.certificate-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 7, 58, 0.2);
+}
+
+.certificates_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.certificate-item:hover .certificates_image {
+    transform: scale(1.03);
+}
+
+.certificate-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 15px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-item:hover .certificate-overlay {
+    opacity: 1;
+}
+
+.certificate-title {
+    font-weight: 500;
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 7, 58, 0.4);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.close:hover {
+    color: var(--primary);
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.nav-btn {
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    background: rgba(0,0,0,0.3);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.nav-btn:hover {
+    color: var(--primary);
+    background: rgba(255,255,255,0.1);
+}
+
+
+
+@media (max-width: 768px) {
+    .certificates_content {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .close {
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+
+    .nav-btn {
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+}

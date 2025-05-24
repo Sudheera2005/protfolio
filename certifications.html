@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudheera Perera</title>
-    <link rel="stylesheet" href="./styles/education.css">
+    <link rel="stylesheet" href="./styles/certificates.css">
 </head>
 <body>
     <header>
@@ -16,25 +16,59 @@
     <main>
         <h1>Certificates</h1>
         <div class="certificates_content">
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat1.png" alt="Certificate 1"></div>
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat2.png" alt="Certificate 2"></div>
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat3.png" alt="Certificate 3"></div>
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat4.png" alt="Certificate 4"></div>
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat5.png" alt="Certificate 5"></div>
-            <div><img class="certificates_image" src="./Image/Certificates/Certificat6.png" alt="Certificate 6"></div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat1.png" alt="Certificate 1">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 1</h3>
+                </div>
+            </div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat2.png" alt="Certificate 2">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 2</h3>
+                </div>
+            </div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat3.png" alt="Certificate 3">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 3</h3>
+                </div>
+            </div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat4.png" alt="Certificate 4">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 4</h3>
+                </div>
+            </div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat5.png" alt="Certificate 5">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 5</h3>
+                </div>
+            </div>
+            <div class="certificate-item">
+                <img class="certificates_image" src="./Image/Certificates/Certificat6.png" alt="Certificate 6">
+                <div class="certificate-overlay">
+                    <h3 class="certificate-title">Certificate Title 6</h3>
+                </div>
+            </div>
         </div>
     
         <!-- Popup Modal -->
         <div id="modal" class="modal">
-            <span class="close" aria-label="Close modal">&times;</span>
+            <span class="close">&times;</span>
+            <div class="modal-nav">
+                <span class="nav-btn prev-btn">&#10094;</span>
+                <span class="nav-btn next-btn">&#10095;</span>
+            </div>
             <img class="modal-content" id="modalImg" alt="Enlarged Certificate">
         </div>
-    </main>
+    </main> 
     
     <footer>
         <p class="footer">© 2025 Sudheera Perera. All rights reserved.</p>
     </footer>  
-    <script src="./scripts/education.js"></script>
+    <script src="./scripts/certificates.js"></script>
 
     
 </body>

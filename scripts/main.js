@@ -133,87 +133,87 @@ const canvas = document.getElementById('bgCanvas');
             mouse.y = undefined;
         });
 
-        // Typing Effect
-        const textElement = document.getElementById("typing-text");
-        const textArray = ["Sudheera Perera", "A Developer", "A Programmer", "A Tech Enthusiast"];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
+// Typing Effect
+const textElement = document.getElementById("typing-text");
+const textArray = ["Sudheera Perera", "A Developer", "A Programmer", "A Tech Enthusiast"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-        function typeEffect() {
-            let currentText = textArray[textIndex];
-            if (isDeleting) {
-                textElement.textContent = currentText.substring(0, charIndex--);
-            } else {
-                textElement.textContent = currentText.substring(0, charIndex++);
-            }
+function typeEffect() {
+    let currentText = textArray[textIndex];
+    if (isDeleting) {
+        textElement.textContent = currentText.substring(0, charIndex--);
+    } else {
+        textElement.textContent = currentText.substring(0, charIndex++);
+    }
 
-            if (!isDeleting && charIndex === currentText.length + 1) {
-                isDeleting = true;
-                setTimeout(typeEffect, 1500);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % textArray.length;
-                setTimeout(typeEffect, 500);
-            } else {
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-        }
+    if (!isDeleting && charIndex === currentText.length + 1) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1500);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % textArray.length;
+        setTimeout(typeEffect, 500);
+    } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+}
 
-        // Modern Vapor Effect
-        function createVapor() {
-            const container = document.querySelector('.glow-container');
-            const colors = [
-                'rgba(255, 7, 58, 0.7)',
-                'rgba(226, 43, 177, 0.6)',
-                'rgba(255, 255, 255, 0.5)',
-                'rgba(200, 220, 255, 0.4)'
-            ];
+// Modern Vapor Effect
+function createVapor() {
+    const container = document.querySelector('.glow-container');
+    const colors = [
+        'rgba(255, 7, 58, 0.7)',
+        'rgba(226, 43, 177, 0.6)',
+        'rgba(255, 255, 255, 0.5)',
+        'rgba(200, 220, 255, 0.4)'
+    ];
 
-            const vapor = document.createElement('div');
-            vapor.className = 'vapor';
+    const vapor = document.createElement('div');
+    vapor.className = 'vapor';
             
-            // Random properties
-            const size = Math.random() * 30 + 10;
-            const duration = Math.random() * 6 + 3;
-            const delay = Math.random() * 2;
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            const tx = (Math.random() - 0.5) * 100;
-            const ty = -(Math.random() * 100 + 50);
-            const scale = Math.random() * 3 + 1;
+    // Random properties
+    const size = Math.random() * 30 + 10;
+    const duration = Math.random() * 6 + 3;
+    const delay = Math.random() * 2;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const tx = (Math.random() - 0.5) * 100;
+    const ty = -(Math.random() * 100 + 50);
+    const scale = Math.random() * 3 + 1;
             
-            vapor.style.width = `${size}px`;
-            vapor.style.height = `${size}px`;
-            vapor.style.background = color;
-            vapor.style.left = `50%`;
-            vapor.style.bottom = `0`;
-            vapor.style.setProperty('--tx', `${tx}px`);
-            vapor.style.setProperty('--ty', `${ty}px`);
-            vapor.style.setProperty('--scale', scale);
-            vapor.style.animation = `vapor-float ${duration}s ease-out ${delay}s forwards`;
+    vapor.style.width = `${size}px`;
+    vapor.style.height = `${size}px`;
+    vapor.style.background = color;
+    vapor.style.left = `50%`;
+    vapor.style.bottom = `0`;
+    vapor.style.setProperty('--tx', `${tx}px`);
+    vapor.style.setProperty('--ty', `${ty}px`);
+    vapor.style.setProperty('--scale', scale);
+    vapor.style.animation = `vapor-float ${duration}s ease-out ${delay}s forwards`;
             
-            container.appendChild(vapor);
+    container.appendChild(vapor);
             
-            // Remove element after animation completes
-            setTimeout(() => {
-                vapor.remove();
-            }, (duration + delay) * 1000);
-        }
+    // Remove element after animation completes
+    setTimeout(() => {
+        vapor.remove();
+    }, (duration + delay) * 1000);
+}
 
-        // Start vapor effect
-        setInterval(createVapor, 300);
+// Start vapor effect
+setInterval(createVapor, 300);
 
-        // Initialize everything
-        init();
-        animate();
-        typeEffect();
+// Initialize everything
+init();
+animate();
+typeEffect();
 // About me
 
 
 
- // Portfolio
+// Portfolio
 
- // Optional: Add any JavaScript interactions here if needed
+// Optional: Add any JavaScript interactions here if needed
  document.querySelectorAll('.project_card').forEach(card => {
     card.addEventListener('mouseenter', () => {
       card.querySelector('.project_title_overlay').style.opacity = '1';
