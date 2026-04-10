@@ -1,302 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Character encoding: must be first in <head> -->
     <meta charset="UTF-8">
+    <!-- Responsive scaling — disables default mobile zoom-out -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudheera Perera</title>
-    <link rel="stylesheet" href="./styles/main.css">
+    <!-- SEO: shown in Google search results and browser tab tooltips -->
+    <meta name="description"
+        content="Sudheera Perera – Full Stack Developer & Cybersecurity Enthusiast. Explore my portfolio of projects, skills, and experience.">
+    <meta name="author" content="Sudheera Perera">
+    <!-- Page title shown in browser tab -->
+    <title>Sudheera Perera | Full Stack Developer</title>
+
+    <!-- ── Google Fonts ────────────────────────────────────────
+         Inter  → body text, labels, form fields
+         Outfit → headings (h1, h2), buttons
+    ──────────────────────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ── Third-party libraries ──────────────────────────────
+         Boxicons  → icon set used throughout (social, arrows, etc.)
+         AOS       → Animate On Scroll — fade-up / fade-right effects
+    ──────────────────────────────────────────────────────────── -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
 
+    <!-- Main site stylesheet (design tokens, layout, components) -->
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
+
 <body>
-    <header>
+
+    <!-- ===================== HEADER ===================== -->
+    <header id="mainHeader">
         <div class="header-left">
-            <span class="hamburger" onclick="openNav()">&#9776;</span>
-            <a href="#home" id="logo_img" class="logo"><img class="logo_img" src="./Image/logo.png" alt="Logo"></a>
+            <span class="hamburger" onclick="openNav()" aria-label="Open menu">&#9776;</span>
+            <a href="#home" id="logo_img" class="logo">
+                <img class="logo_img" src="./Image/logo.png" alt="Sudheera Perera Logo">
+            </a>
         </div>
-        <nav  id="mySidenav">
+        <nav id="mySidenav" aria-label="Main navigation">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#portfolio">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <footer>
-        <p class="footer">© 2025 Sudheera Perera. All rights reserved.</p>
-    </footer>    
-    <div id="mobileMenu" class="mobile-nav">
-        <button class="close-btn" onclick="closeNav()">&times;</button>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobileMenu" class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+        <button class="close-btn" onclick="closeNav()" aria-label="Close menu">&times;</button>
         <a href="#home" onclick="closeNav()">Home</a>
         <a href="#about" onclick="closeNav()">About</a>
         <a href="#skills" onclick="closeNav()">Skills</a>
-        <a href="#portfolio" onclick="closeNav()">Portfolio</a>
+        <a href="#portfolio" onclick="closeNav()">Projects</a>
         <a href="#contact" onclick="closeNav()">Contact</a>
     </div>
-        <main>
-            <!-- Home Section -->
-            <canvas id="bgCanvas"></canvas>
-            <section id="home">
-                <div class="home_content">
-                    <div class="text1 text">
-                        <h1>Hello, I'm</h1>
-                        <h1 id="typing-text">&nbsp;</h1><br>
-                        <a href="./CV/SUDHEERA-S.-PERERA-CV.pdf" target="_blank">
-                            <button class="download">Download CV</button>
+
+    <main>
+        <!-- ===================== HOME =====================
+             Full-viewport hero section.
+             - #bgCanvas  → interactive particle network (drawn by main.js)
+             - #typing-text → cycling typewriter text animation
+             - .glow-container → floating profile photo with glow + vapor effect
+        ======================================================= -->
+
+        <!-- Canvas fills the entire viewport in the background via position:fixed -->
+        <canvas id="bgCanvas" aria-hidden="true"></canvas>
+        <section id="home" aria-label="Introduction">
+            <div class="home_content">
+                <div class="text1 text">
+                    <p class="home-greeting">👋 Welcome to my portfolio</p>
+                    <h1>Hello, I'm<br>
+                        <span id="typing-text">&nbsp;</span>
+                    </h1>
+                    <p class="home-subtitle">
+                        Building secure, scalable, and beautiful digital experiences — one line of code at a time.
+                    </p>
+                    <div class="home-cta">
+                        <a href="./CV/SUDHEERA-S.-PERERA-CV.pdf" target="_blank" rel="noopener">
+                            <button class="download" id="downloadCvBtn">
+                                <i class='bx bx-download' style="margin-right:8px;vertical-align:middle;"></i>Download
+                                CV
+                            </button>
                         </a>
-    
-                        <div class="home_icon">
-                            <a href="https://github.com/Sudheera2005" target="_blank"><i class='bx bxl-github'></i></a>
-                            <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-                        </div>
                     </div>
-                    <div class="glow-container">
-                        <img class="main_img_glow" src="./Image/main.jpg" alt="Profile Picture">
-                    </div>
-                </div>
-            </section>
-            <!-- About Section -->
-            <section id="about" >
-                <div class="about-container" >
-                  <h1>About Me</h1>
-                  <div class="about-content">
-            
-                    <!-- Profile Card -->
-                    <div class="profile-card">
-                      <div class="profile-img-container">
-                        <img src="./Image/about_main.jpg" alt="Sudheera Perera Profile Photo" class="profile-img">
-                      </div>
-                      <div class="available-tag">Available for work</div>
-                      <h2>Hello, I'm <span class="highlight">Sudheera Perera</span></h2>
-                      <p class="subtext">Full Stack Developer & Cybersecurity Enthusiast</p>
-                      <div class="social-icons">
-                        <a href="https://github.com/Sudheera2005" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin-square'></i></a>
-                      </div>
-                      <a href="#contact">
-                        <button class="contact-button">Connect with me</button>
-                      </a>
-                    </div>
-            
-                    <!-- Info Text -->
-                    <div class="info-section">
-                      <div class="text-block">
-                        <h2>About Me</h2>
-                        <p>
-                          I'm a tech enthusiast with a background in software engineering, cybersecurity, and networking.
-                          I enjoy building secure, user-friendly solutions using Python, web technologies, and IoT systems.
-                          I'm passionate about AI, data analysis, and creating real-world tech projects that make a difference.
-                        </p>
-                        </p>
-                      </div>
-            
-                      <div class="text-block">
-                        <h2>Background</h2>
-                        <div class="tag-list">
-                          <span class="tag">Strong IT foundation</span>
-                          <span class="tag">Leadership</span>
-                          <span class="tag">Networking Architecture</span>
-                          <span class="tag">Coding</span>
-                          <span class="tag">Team collaboration</span>
-                        </div>
-                      </div>
-            
-                      <div class="text-block">
-                        <h2>Education</h2>
-                        <div class="tag-list">
-                          <a href="./education.html" class="tag">Education</a>
-                          <a href="./certifications.html" class="tag">Certifications</a>
-                        </div>
-                      </div>
-            
-                      <div class="text-block">
-                        <h2>Hobbies</h2>
-                        <div class="tag-list">
-                          <span class="tag">Reading</span>
-                          <span class="tag">Watching films</span>
-                          <span class="tag">Traveling</span>
-                          <span class="tag">Photography</span>
-                          <span class="tag">Coding & learning new tech</span>
-                          <span class="tag">Driving</span>
-                        </div>
-                      </div>
-            
-                      <div class="text-block">
-                        <h2>Languages</h2>
-                        <div class="tag-list">
-                          <span class="tag">English (Fluent)</span>
-                          <span class="tag">Sinhala (Native)</span>
-                        </div>
-                      </div>
-            
-                      <div class="text-block">
-                        <h2>Technical Environment</h2>
-                        <div class="tag-list">
-                          <span class="tag">Linux (Primary OS)</span>
-                          <span class="tag">Windows</span>
-                          <span class="tag">Docker</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </section>
-            <section id="skills">
-                <div class="compute_language">
-                    <h1>Skills & Technologies</h1>
-                    <div class="marquee">
-                      <div class="skills-track">
-                        <!-- Skills List (repeat for smooth scroll) -->
-                        <div class="skills"><i class='bx bxl-python'></i><p>Python</p></div>
-                        <div class="skills"><i class='bx bxl-html5'></i><p>HTML5</p></div>
-                        <div class="skills"><i class='bx bxl-css3'></i><p>CSS3</p></div>
-                        <div class="skills"><i class='bx bxl-javascript'></i><p>JavaScript</p></div>
-                        <div class="skills"><i class='bx bxl-react'></i><p>React</p></div>
-                        <div class="skills"><i class='bx bxl-nodejs'></i><p>Node.js</p></div>
-                        <div class="skills"><i class='bx bxs-file-json'></i><p>JSON</p></div>
-                        <div class="skills"><i class='bx bxl-git'></i><p>Git</p></div>
-                        <div class="skills"><i class='bx bxl-github'></i><p>GitHub</p></div>
-                        <div class="skills"><i class='bx bxl-linux'></i><p>Linux</p></div>
-                        <div class="skills"><i class='bx bxl-docker'></i><p>Docker</p></div>
-                        <div class="skills"><i class='bx bx-data'></i><p>SQL</p></div>
-                
-                        <!-- Duplicate for seamless scroll -->
-                        <div class="skills"><i class='bx bxl-python'></i><p>Python</p></div>
-                        <div class="skills"><i class='bx bxl-html5'></i><p>HTML5</p></div>
-                        <div class="skills"><i class='bx bxl-css3'></i><p>CSS3</p></div>
-                        <div class="skills"><i class='bx bxl-javascript'></i><p>JavaScript</p></div>
-                        <div class="skills"><i class='bx bxl-react'></i><p>React</p></div>
-                        <div class="skills"><i class='bx bxl-nodejs'></i><p>Node.js</p></div>
-                        <div class="skills"><i class='bx bxs-file-json'></i><p>JSON</p></div>
-                        <div class="skills"><i class='bx bxl-git'></i><p>Git</p></div>
-                        <div class="skills"><i class='bx bxl-github'></i><p>GitHub</p></div>
-                        <div class="skills"><i class='bx bxl-linux'></i><p>Linux</p></div>
-                        <div class="skills"><i class='bx bxl-docker'></i><p>Docker</p></div>
-                        <div class="skills"><i class='bx bx-data'></i><p>SQL</p></div>
-                      </div>
-                    </div>
-                </div>
-                
-            </section>
-            <!-- Portfolio Section -->
-            <section id="portfolio" data-aos="fade-up">
-                <h1>Last Projects</h1>
-                <div class="portfolio_content">
-              
-                  <!-- Card 1 -->
-                  <div class="project_card">
-                    <div class="project_image_container">
-                      <img src="./Image/projects/profolio.png" alt="Project 1" class="project_image" >
-                      <div class="project_title_overlay">
-                        <h3 class="project_title">My Portfolio</h3>
-                      </div>
-                    </div>
-                    <div class="project_details">
-                      <p>A static and interactive portfolio built with HTML, CSS, and JavaScript, featuring smooth animations to showcase web development skills and creative design.</p>
-                      <div class="project_tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Vanilla Js</span>
-                      </div>
-                      <a href="https://github.com/Sudheera2005/protfolio.git" target="_blank" class="project_link">
-                        View on GitHub <i class='bx bx-link-external'></i>
-                      </a>
-                    </div>
-                  </div>
-              
-                  <!-- Card 2 -->
-                  <div class="project_card">
-                    <div class="project_image_container">
-                      <img src="./Image/projects/grtto gaming.png" alt="Project 2" class="project_image">
-                      <div class="project_title_overlay">
-                        <h3 class="project_title">Dynamic Gaming Store with Online Ordering System</h3>
-                      </div>
-                    </div>
-                    <div class="project_details">
-                      <p>An interactive gaming retail website using HTML, CSS, JS, and JSON, featuring a real-time cart, dynamic product rendering, and responsive ordering functionality.</p>
-                      <div class="project_tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">Vanilla Js</span>
-                        <span class="tag">JSON</span>
-                      </div>
-                      <a href="https://github.com/Sudheera2005/WDOS-Assiment.git" target="_blank" class="project_link">
-                        View on GitHub <i class='bx bx-link-external'></i>
-                      </a>
-                    </div>
-                  </div>
-              
-                  <!-- Card 3 -->
-                  <div class="project_card">
-                    <div class="project_image_container">
-                      <img src="./Image/projects/network.jpg" alt="Project 3" class="project_image">
-                      <div class="project_title_overlay">
-                        <h3 class="project_title">Ticketing Platform</h3>
-                      </div>
-                    </div>
-                    <div class="project_details">
-                      <p>Designed a secure and efficient network for 500+ computers across 3 branches with 5 departments each. Used VLSM for IP management, PAT for internet access, VLANs for traffic segmentation, switch port security for access control, and DHCP servers for automated IP assignment.                      </p>
-                      <div class="project_tags">
-                        <span class="tag">Cisco Packet Tracer</span>
-                      </div>
-                      <a href="https://github.com/Sudheera2005/Network-System.git" target="_blank" class="project_link">
-                        View on GitHub <i class='bx bx-link-external'></i>
-                      </a>
-                    </div>
-                  </div>
-              
-                </div>
-              </section>
-        <!-- Services Section -->
-        
-        <!-- Contact Me Section -->
-        <section id="contact" data-aos="fade-down">
-            <div class="contact_content">
-                <div>
-                    <h1>Contact Me</h1>
-                    <form id="contact-form">
-                        <input type="text" id="name" name="firstname" placeholder="Your name.." required>
-                        <input type="email" id="email" name="email" placeholder="Your email.." required>
-                        <textarea id="message" name="message" placeholder="Write your message.." style="height:170px" required></textarea><br>
-                        <input type="submit" value="Submit">
-                    </form>
-                    <p id="responseMessage"></p>
-                </div>
-        
-                <div>
-                    <div class="icon">
-                        <a href="tel:+94741121785">
-                            <i class='bx bx-phone'></i>
-                            <span class="icon_text">+94 781 121 785</span>
-                        </a><br>
-        
-                        <a href="mailto:sudheera2005perera@gmail.com">
-                            <i class='bx bxl-gmail'></i>
-                            <span  class="icon_text">sudheerafierking@gmail.com</span>
-                        </a><br>
-        
-                        <a href="https://github.com/Sudheera2005" target="_blank">
-                            <i class="bx bxl-github"></i><span class="icon_text">GitHub</span>
+                    <div class="home_icon">
+                        <a href="https://github.com/Sudheera2005" target="_blank" rel="noopener"
+                            aria-label="GitHub Profile">
+                            <i class='bx bxl-github'></i>
                         </a>
-        
-                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank">
-                            <i class="bx bxl-linkedin-square"></i><span class="icon_text">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank" rel="noopener"
+                            aria-label="LinkedIn Profile">
+                            <i class='bx bxl-linkedin-square'></i>
                         </a>
+                    </div>
+                </div>
+                <div class="glow-container" aria-hidden="true">
+                    <img class="main_img_glow" src="./Image/main.jpg" alt="Sudheera Perera Profile Photo">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== ABOUT =====================
+             Two-column layout:
+             LEFT  → .profile-card  (photo, status badge, social icons, CTA)
+             RIGHT → .info-section  (text-blocks: bio, background, education, hobbies…)
+             The entire section is wrapped in a glassmorphism container (.about-container).
+        ======================================================= -->
+        <section id="about" aria-label="About Me">
+            <!-- Glassmorphism card wraps all about content -->
+            <div class="about-container">
+                <h1 class="section-title">About <span>Me</span></h1>
+                <div class="about-content">
+                    <!-- ── LEFT: Photo card ────────────────────────────── -->
+                    <div class="profile-card" data-aos="fade-right">
+                        <div class="profile-img-container">
+                            <img src="./Image/about_main.jpg" alt="Sudheera Perera – Full Stack Developer"
+                                class="profile-img">
+                        </div>
+                        <div class="available-tag">Available for work</div>
+                        <h2>Hello, I'm <span class="highlight">Sudheera Perera</span></h2>
+                        <p class="subtext">Full Stack Developer &amp; Cybersecurity Enthusiast</p>
+                        <div class="social-icons">
+                            <a href="https://github.com/Sudheera2005" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank"
+                                rel="noopener" aria-label="LinkedIn">
+                                <i class='bx bxl-linkedin-square'></i>
+                            </a>
+                        </div>
+                        <a href="#contact">
+                            <button class="contact-button">Connect with me</button>
+                        </a>
+                    </div>
+
+                    <!-- ── RIGHT: Info blocks (each is an animated .text-block card) ── -->
+                    <div class="info-section" data-aos="fade-left">
+                        <div class="text-block">
+                            <h2>About Me</h2>
+                            <p>
+                                I'm a tech enthusiast with a background in software engineering, cybersecurity, and
+                                networking.
+                                I enjoy building secure, user-friendly solutions using Python, web technologies, and IoT
+                                systems.
+                                I'm passionate about AI, data analysis, and creating real-world tech projects that make
+                                a difference.
+                            </p>
+                        </div>
+
+                        <div class="text-block">
+                            <h2>Background</h2>
+                            <div class="tag-list">
+                                <span class="tag">Strong IT Foundation</span>
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Network Architecture</span>
+                                <span class="tag">Coding</span>
+                                <span class="tag">Team Collaboration</span>
+                            </div>
+                        </div>
+
+                        <div class="text-block">
+                            <h2>Education &amp; Certifications</h2>
+                            <div class="tag-list">
+                                <a href="./education.html" class="tag">📚 Education Timeline</a>
+                                <a href="./certifications.html" class="tag">🏆 Certifications</a>
+                            </div>
+                        </div>
+
+                        <div class="text-block">
+                            <h2>Hobbies</h2>
+                            <div class="tag-list">
+                                <span class="tag">📖 Reading</span>
+                                <span class="tag">🎬 Watching Films</span>
+                                <span class="tag">✈️ Traveling</span>
+                                <span class="tag">📷 Photography</span>
+                                <span class="tag">💻 Coding</span>
+                                <span class="tag">🚗 Driving</span>
+                            </div>
+                        </div>
+
+                        <div class="text-block">
+                            <h2>Languages</h2>
+                            <div class="tag-list">
+                                <span class="tag">🇬🇧 English (Fluent)</span>
+                                <span class="tag">🇱🇰 Sinhala (Native)</span>
+                            </div>
+                        </div>
+
+                        <div class="text-block">
+                            <h2>Technical Environment</h2>
+                            <div class="tag-list">
+                                <span class="tag">🐧 Linux (Primary OS)</span>
+                                <span class="tag">🪟 Windows</span>
+                                <span class="tag">🐳 Docker</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>       
+        </section>
+
+        <!-- ===================== SKILLS =====================
+             Auto-scrolling marquee of skill cards.
+             - .skills-track      → contains two identical sets of skill cards
+                                    so the loop appears seamless (no gap at the end)
+             - Marquee pauses on hover (animation-play-state: paused in CSS)
+             - Fade gradients on left/right edges via ::before / ::after pseudo-elements
+        ======================================================= -->
+        <section id="skills" aria-label="Skills and Technologies">
+            <div class="compute_language">
+                <h1>Skills &amp; <span>Technologies</span></h1>
+                <p class="skills-subtitle">Technologies I work with daily to build powerful applications</p>
+                <!-- Overflow-hidden container — CSS handles the scrolling animation -->
+                <div class="marquee" role="region" aria-label="Skills carousel">
+                    <!-- Two identical sets for infinite seamless loop -->
+                    <div class="skills-track">
+                        <!-- Set 1 -->
+                        <div class="skills"><i class='bx bxl-python'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-html5'></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-css3'></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-javascript'></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-react'></i>
+                            <p>React</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-nodejs'></i>
+                            <p>Node.js</p>
+                        </div>
+                        <div class="skills"><i class='bx bxs-file-json'></i>
+                            <p>JSON</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-git'></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-github'></i>
+                            <p>GitHub</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-linux'></i>
+                            <p>Linux</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-docker'></i>
+                            <p>Docker</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-data'></i>
+                            <p>SQL</p>
+                        </div>
+                        <!-- Set 2 (duplicate for seamless loop) -->
+                        <div class="skills"><i class='bx bxl-python'></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-html5'></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-css3'></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-javascript'></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-react'></i>
+                            <p>React</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-nodejs'></i>
+                            <p>Node.js</p>
+                        </div>
+                        <div class="skills"><i class='bx bxs-file-json'></i>
+                            <p>JSON</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-git'></i>
+                            <p>Git</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-github'></i>
+                            <p>GitHub</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-linux'></i>
+                            <p>Linux</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-docker'></i>
+                            <p>Docker</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-data'></i>
+                            <p>SQL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PORTFOLIO =====================
+             Responsive auto-fit grid of project cards.
+             Each .project_card contains:
+               - .project_image_container  → screenshot / banner image
+               - .project_title_overlay    → title that slides up on hover
+               - .wip-badge               → amber pill shown ONLY on active WIP cards
+               - .project_details         → description, tech tags, external link
+        ======================================================= -->
+        <section id="portfolio" aria-label="Projects">
+            <h1>Recent <span>Projects</span></h1>
+            <p class="portfolio-subtitle">A selection of work I'm proud of</p>
+            <div class="portfolio_content">
+
+                <!-- Card 1 — Logistics Management System (currently in active development) -->
+                <article class="project_card wip-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/Logistic-management.png" alt="Logistic-management System"
+                            class="project_image">
+
+                        <!-- Layer 1: Dark depth-of-field overlay — dims the image so the badge pops -->
+                        <div class="wip-image-overlay"></div>
+
+                        <!-- Layer 2: Focal badge — glassmorphism card with neon glow -->
+                        <div class="wip-focal">
+                            <!-- Animated gradient border (CSS ::before) -->
+                            <div class="wip-badge-card">
+                                <!-- Pulsing status dot -->
+                                <span class="wip-dot" aria-hidden="true"></span>
+                                <!-- Main label -->
+                                <div class="wip-text">
+                                    <span class="wip-label">Currently Working On</span>
+                                    <span class="wip-sublabel">Active Development</span>
+                                </div>
+                                <!-- Shimmer sweep (CSS ::after on inner element) -->
+                                <span class="wip-shimmer" aria-hidden="true"></span>
+                            </div>
+                        </div>
+
+                        <!-- Layer 3: Hover title overlay (unchanged) -->
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">Logistic-management System</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>A full-stack logistics solution integrating a Django backend with a React administrative
+                            dashboard and a Flutter-based mobile app for streamlined supply chain tracking.</p>
+                        <div class="project_tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Flutter</span>
+                        </div>
+                        <a href="https://ccgroup-99075.web.app/" target="_blank" rel="noopener" class="project_link">
+                            View on Web <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/Color Intelligence PRO.jpeg" alt="Color Intelligence PRO"
+                            class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">Color Intelligence PRO</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>Built a Local-First Design Engine that enables developers to stress-test color palettes
+                            against realistic website simulations. Featuring an intelligent Auto-Generate mode and a
+                            Tailwind-ready export system, it ensures every design is both visually striking and fully
+                            accessible before a single line of CSS is written.</p>
+                        <div class="project_tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Tailwind</span>
+                        </div>
+                        <a href="https://github.com/Sudheera2005/Web-Color-Intelligence-Too.git" target="_blank"
+                            rel="noopener" class="project_link">
+                            View on GitHub <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/E-commce web.png" alt="E-commce web" class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">E-commce web</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>Developed a responsive vehicle marketplace with a Node/MySQL backend and React frontend,
+                            incorporating secure user auth, paginated search, and an integrated admin management system.
+                        </p>
+                        <div class="project_tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/APIIT 24-Hour Hackathon.jpeg" alt="APIIT 24-Hour Hackathon"
+                            class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">APIIT 24-Hour Hackathon</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>A static and interactive portfolio built with HTML, CSS, and JavaScript, featuring smooth
+                            animations to showcase web development skills and creative design.</p>
+                        <div class="project_tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">PHP</span>
+                        </div>
+                        <a href="https://www.linkedin.com/posts/imadh-hussain_hackathon-softwareengineering-php-activity-7406958805428838400-0TEM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEfOUaoB38U6iX6LTBY_8gd8730D4NIu4Ho"
+                            target="_blank" rel="noopener" class="project_link">
+                            View on LinkedIn <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/profolio.png" alt="My Portfolio Website" class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">My Portfolio</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>A static and interactive portfolio built with HTML, CSS, and JavaScript, featuring smooth
+                            animations to showcase web development skills and creative design.</p>
+                        <div class="project_tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Vanilla JS</span>
+                        </div>
+                        <a href="https://github.com/Sudheera2005/protfolio.git" target="_blank" rel="noopener"
+                            class="project_link">
+                            View on GitHub <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/grtto gaming.png"
+                            alt="Dynamic Gaming Store with Online Ordering System" class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">Dynamic Gaming Store</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>An interactive gaming retail website using HTML, CSS, JS, and JSON, featuring a real-time
+                            cart, dynamic product rendering, and responsive ordering functionality.</p>
+                        <div class="project_tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Vanilla JS</span>
+                            <span class="tag">JSON</span>
+                        </div>
+                        <a href="https://github.com/Sudheera2005/WDOS-Assiment.git" target="_blank" rel="noopener"
+                            class="project_link">
+                            View on GitHub <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Card 7  -->
+                <article class="project_card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project_image_container">
+                        <img src="./Image/projects/network.jpg" alt="Enterprise Network Design Project"
+                            class="project_image">
+                        <div class="project_title_overlay">
+                            <h3 class="project_title">Enterprise Network Design</h3>
+                        </div>
+                    </div>
+                    <div class="project_details">
+                        <p>Designed a secure and efficient network for 500+ computers across 3 branches with 5
+                            departments each, using VLSM, PAT, VLANs, and DHCP for automated IP management.</p>
+                        <div class="project_tags">
+                            <span class="tag">Cisco Packet Tracer</span>
+                            <span class="tag">VLSM</span>
+                            <span class="tag">Networking</span>
+                        </div>
+                        <a href="https://github.com/Sudheera2005/Network-System.git" target="_blank" rel="noopener"
+                            class="project_link">
+                            View on GitHub <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================== CONTACT ===================== -->
+        <section id="contact" aria-label="Contact Me">
+            <h1>Get In <span>Touch</span></h1>
+            <p class="contact-intro">Have a project in mind or just want to chat? I'd love to hear from you.</p>
+            <div class="contact_content">
+                <!-- Form -->
+                <div>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="firstname" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or idea..."
+                                required></textarea>
+                        </div>
+                        <input type="submit" value="Send Message →">
+                        <p id="responseMessage" role="alert"></p>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-panel">
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <div class="icon">
+                            <a href="tel:+94781121785" aria-label="Call Sudheera">
+                                <i class='bx bx-phone'></i>
+                                <span class="icon_text">+94 781 121 785</span>
+                            </a>
+                            <a href="mailto:sudheera2005perera@gmail.com" aria-label="Email Sudheera">
+                                <i class='bx bxl-gmail'></i>
+                                <span class="icon_text">sudheerafierking@gmail.com</span>
+                            </a>
+                            <a href="https://github.com/Sudheera2005" target="_blank" rel="noopener"
+                                aria-label="GitHub Profile">
+                                <i class="bx bxl-github"></i>
+                                <span class="icon_text">github.com/Sudheera2005</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sudheera-perera-576552297" target="_blank"
+                                rel="noopener" aria-label="LinkedIn Profile">
+                                <i class="bx bxl-linkedin-square"></i>
+                                <span class="icon_text">LinkedIn Profile</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
-      <p class="footer">© 2025 Sudheera Perera. All rights reserved.</p>
-    </footer> 
+        <p class="footer">© 2025 Sudheera Perera · All rights reserved · Built with ❤️</p>
+    </footer>
+
     <script src="./scripts/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 80 });
     </script>
-    
 </body>
+
 </html>
