@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website. This project showcases my work, skills, and background in full-stack development, software engineering, and cybersecurity.
 
 ## 🚀 Live Demo
-Visit the website at: **[sudheera2005.github.io/portfolio](https://sudheera2005.github.io/portfolio)** (or custom domain if configured).
+Visit the website at: **[sudheera2005.github.io/portfolio](https://sudheera2005.github.io/portfolio)**
 
 ---
 
