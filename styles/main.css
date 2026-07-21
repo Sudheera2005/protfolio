@@ -409,6 +409,41 @@ footer {
     left: 100%;
 }
 
+.student-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124, 58, 237, 0.05);
+    border: 1px solid rgba(124, 58, 237, 0.18);
+    padding: 4px 12px;
+    border-radius: 50px;
+    color: #a78bfa;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 12px;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.04);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.student-badge i {
+    font-size: 0.9rem;
+    color: #a78bfa;
+    transition: var(--transition);
+}
+
+.student-badge:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.12);
+    transform: translateY(-1px);
+}
+
+.student-badge:hover i {
+    transform: rotate(-6deg) scale(1.05);
+}
+
 .home_icon {
     margin-top: 40px;
     display: flex;
@@ -883,7 +918,7 @@ footer {
 .skills-track {
     display: flex;
     gap: 24px;
-    animation: scroll-left 25s linear infinite;
+    animation: scroll-left 38s linear infinite;
     width: max-content;
     will-change: transform;
 }
@@ -963,6 +998,230 @@ footer {
 
     100% {
         transform: translateX(-50%);
+    }
+}
+
+/* ── Detailed Skills Section ────────────────────────────── */
+.skills-detailed-container {
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+.skills-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.skills-category-card {
+    background: rgba(13, 17, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-1);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s ease;
+}
+
+.skills-category-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(226, 43, 177, 0.35); /* hot pink border highlight */
+    box-shadow: 0 15px 40px rgba(226, 43, 177, 0.1), 0 0 25px rgba(226, 43, 177, 0.05);
+}
+
+.skills-category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.skills-category-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+}
+
+.skills-category-card .card-header i {
+    font-size: 1.6rem;
+    color: var(--secondary); /* hot pink outline icons */
+    text-shadow: 0 0 10px rgba(226, 43, 177, 0.3);
+}
+
+.skills-category-card .card-header h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.skills-category-card .card-header h3 span {
+    font-family: 'Courier New', monospace;
+    color: var(--primary); /* neon red terminal prompt */
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* Skill Pills/Tags */
+.skills-pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-pill:hover {
+    background: rgba(226, 43, 177, 0.08);
+    border-color: var(--secondary);
+    color: var(--text);
+    box-shadow: 0 0 12px rgba(226, 43, 177, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Leadership & Soft Skills Section */
+.skills-leadership-section {
+    margin-top: 48px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.leadership-card {
+    background: rgba(19, 13, 30, 0.45); /* slightly different distinct background tone */
+    border: 1px solid rgba(124, 58, 237, 0.15); /* violet accent border */
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leadership-card:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.08);
+}
+
+.leadership-card .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+    padding-bottom: 16px;
+}
+
+.leadership-card .card-header i {
+    font-size: 1.8rem;
+    color: var(--accent); /* violet */
+    text-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
+
+.leadership-card .card-header h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.05em;
+}
+
+.leadership-card .card-header h3 span {
+    font-family: 'Courier New', monospace;
+    color: var(--accent);
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+}
+
+.leadership-item {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.leadership-item:hover {
+    background: rgba(124, 58, 237, 0.03);
+    border-color: rgba(124, 58, 237, 0.15);
+    transform: translateY(-3px);
+}
+
+.leadership-item h4 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    color: var(--accent); /* violet */
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.leadership-item h4::before {
+    content: '$ ';
+    color: var(--primary); /* neon red shell prompt */
+    font-weight: bold;
+}
+
+.leadership-item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .skills-tech-grid {
+        grid-template-columns: 1fr;
+    }
+    .leadership-card {
+        padding: 24px;
+    }
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
@@ -1964,18 +2223,280 @@ input[type="submit"]:hover {
 }
 
 #about .profile-card {
-    flex: 1 1 30%;
-    min-width: 300px;
-    background: rgba(17, 21, 35, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 30px;
+    flex: 1 1 300px;
+    max-width: 340px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255, 10, 122, 0.08) 0%, rgba(17, 21, 35, 0.97) 60%),
+                rgba(15, 17, 30, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 24px;
+    padding: 24px 28px 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 24px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 10, 122, 0.05);
+    backdrop-filter: blur(12px);
+    /* overflow must be visible so floating icons can sit outside the img container */
+    overflow: visible;
 }
+
+/* ── 1. Animated drifting circuit grid ────────────────── */
+#about .profile-card::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    /* clip to card shape while allowing overflow:visible on parent for float icons */
+    clip-path: inset(40px round 24px);
+    background-image:
+        linear-gradient(rgba(255, 10, 122, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 10, 122, 0.07) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+    z-index: 0;
+    animation: pc-grid-drift 12s linear infinite;
+}
+
+@keyframes pc-grid-drift {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(36px, 36px); }
+}
+
+/* ── 2. Card border glow pulse ────────────────────────── */
+#about .profile-card {
+    animation: pc-border-pulse 4s ease-in-out infinite;
+}
+
+@keyframes pc-border-pulse {
+    0%, 100% {
+        box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.05),
+            0 24px 50px rgba(0, 0, 0, 0.6),
+            0 0 30px rgba(255, 10, 122, 0.06);
+    }
+    50% {
+        box-shadow:
+            0 0 0 1px rgba(255, 10, 122, 0.20),
+            0 24px 50px rgba(0, 0, 0, 0.6),
+            0 0 55px rgba(255, 10, 122, 0.18),
+            inset 0 0 20px rgba(255, 10, 122, 0.04);
+    }
+}
+
+/* ── 3. Cyber architecture background layer container ── */
+.pc-bg-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Network topology nodes — small pulsing circles */
+.pc-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff0a7a;
+    box-shadow: 0 0 8px rgba(255, 10, 122, 0.9), 0 0 20px rgba(255, 10, 122, 0.4);
+    animation: pc-node-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pc-node-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1);   box-shadow: 0 0 6px rgba(255, 10, 122, 0.6); }
+    50%       { opacity: 1;   transform: scale(1.8); box-shadow: 0 0 16px rgba(255, 10, 122, 1),
+                                                                  0 0 30px rgba(255, 10, 122, 0.4); }
+}
+
+/* Architecture connection wires */
+.pc-wire {
+    position: absolute;
+    background: rgba(255, 10, 122, 0.18);
+    animation: pc-wire-pulse 3.5s ease-in-out infinite;
+}
+
+.pc-wire-h {
+    height: 1px;
+    transform-origin: left center;
+}
+
+.pc-wire-v {
+    width: 1px;
+    transform-origin: center top;
+}
+
+@keyframes pc-wire-pulse {
+    0%, 100% { opacity: 0.15; background: rgba(255, 10, 122, 0.12); }
+    50%       { opacity: 0.55; background: rgba(255, 10, 122, 0.45);
+                box-shadow: 0 0 6px rgba(255, 10, 122, 0.35); }
+}
+
+/* Floating code / hex tokens */
+.pc-token {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255, 10, 122, 0.55);
+    white-space: nowrap;
+    animation: pc-token-fade 4s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(255, 10, 122, 0.6);
+}
+
+@keyframes pc-token-fade {
+    0%   { opacity: 0;    transform: translateY(4px);  }
+    15%  { opacity: 0.7;  transform: translateY(0px);  }
+    75%  { opacity: 0.45; transform: translateY(-2px); }
+    100% { opacity: 0;    transform: translateY(-6px); }
+}
+
+/* Ensure all direct children sit above the grid overlay */
+#about .profile-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Float icons must remain absolute — explicit override */
+#about .profile-card > .pc-float-icon {
+    position: absolute;
+    z-index: 3;
+}
+
+/* ── Floating decorative tech icons ────────────────── */
+.pc-float-icon {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(15, 17, 30, 0.85);
+    border: 1px solid rgba(255, 10, 122, 0.35);
+    color: #ff0a7a;
+    font-size: 1.3rem;
+    box-shadow: 0 0 14px rgba(255, 10, 122, 0.2), inset 0 0 8px rgba(255, 10, 122, 0.05);
+    animation: pc-float 4s ease-in-out infinite;
+}
+
+/* Positions: db = left-mid, lock = upper-right, code = right-lower
+   All coordinates are relative to the .profile-card */
+.pc-float-db  { top: 145px; left: -4px;  animation-delay: 0s;   }
+.pc-float-lock{ top: 18px;  right: 18px; animation-delay: 1.3s; }
+.pc-float-code{ top: 215px; right: -4px; animation-delay: 2.6s; }
+
+@keyframes pc-float {
+    0%, 100% { transform: translateY(0px);  }
+    50%       { transform: translateY(-8px); }
+}
+
+/* ── Profile image container with pink ring/glow ─── */
+#about .profile-img-container {
+    position: relative;
+    width: 240px;
+    height: 280px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* The circular pink ring/glow halo */
+.pc-ring-glow {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 2.5px solid #ff0a7a;
+    box-shadow:
+        0 0 20px rgba(255, 10, 122, 0.65),
+        0 0 50px rgba(255, 10, 122, 0.30),
+        inset 0 0 40px rgba(255, 10, 122, 0.10);
+    background: radial-gradient(circle, rgba(255, 10, 122, 0.09) 0%, transparent 70%);
+    z-index: 0;
+}
+
+/* The actual photo — sits on top of the ring, fills upward */
+#about .profile-img {
+    position: relative;
+    z-index: 1;
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.7));
+    transition: transform 0.4s ease;
+}
+
+#about .profile-img:hover {
+    transform: scale(1.03) translateY(-4px);
+}
+
+/* Cancel the old hover 3D tilt on the container */
+#about .profile-img-container:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#about .profile-img-container::before {
+    display: none;
+}
+
+/* ── Full-width CTA button ───────────────────────── */
+.pc-cta-link {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.pc-contact-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #ff073a, #e22bb1);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 24px rgba(255, 7, 58, 0.35);
+    letter-spacing: 0.02em;
+}
+
+.pc-contact-btn i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.pc-contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(255, 7, 58, 0.5);
+}
+
+.pc-contact-btn:hover i {
+    transform: translateX(4px);
+}
+
 
 #about .info-section.redesigned {
     flex: 1 1 65%;
@@ -1995,12 +2516,23 @@ input[type="submit"]:hover {
     gap: 8px;
     background: rgba(0, 255, 0, 0.1);
     color: #4ade80;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 500;
-    border: 1px solid rgba(74, 222, 128, 0.2);
+    font-weight: 600;
+    border: 1px solid rgba(74, 222, 128, 0.25);
     margin-bottom: 20px;
+}
+
+.available-tag::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #4ade80;
+    animation: pulse-green 2s infinite;
 }
 
 .status-dot {
@@ -2149,6 +2681,12 @@ input[type="submit"]:hover {
     color: #e2e8f0;
 }
 
+/* 3-column variant for the focus-grid (used in Who I Am) */
+.focus-grid--3col .focus-item {
+    flex: 1 1 calc(33.333% - 15px);
+    min-width: 0;
+}
+
 /* Technical DNA Grid */
 .dna-grid {
     display: flex;
@@ -2251,76 +2789,7 @@ input[type="submit"]:hover {
     from { width: 0; }
 }
 
-/* Education & Certifications Nav Cards */
-.edu-cert-grid {
-    display: flex;
-    gap: 20px;
-}
 
-.edu-nav-card {
-    flex: 1;
-    background: rgba(17, 21, 35, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-    color: #ffffff;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.edu-nav-card:hover {
-    border-color: #ff0a7a;
-    background: rgba(255, 10, 122, 0.05);
-    transform: translateY(-3px);
-}
-
-.nav-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 10, 122, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ff0a7a;
-    font-size: 24px;
-    flex-shrink: 0;
-}
-
-.nav-content h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    font-family: 'Inter', sans-serif;
-}
-
-.nav-content p {
-    font-size: 13px;
-    color: #b0b6c3;
-    line-height: 1.4;
-}
-
-.nav-arrow {
-    margin-left: auto;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #ff0a7a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 20px;
-    transition: transform 0.3s ease;
-}
-
-.edu-nav-card:hover .nav-arrow {
-    transform: translateX(5px);
-}
 
 /* Bottom Quote Section */
 .quote-card {
@@ -2352,16 +2821,19 @@ input[type="submit"]:hover {
 @media (max-width: 992px) {
     #about .about-content {
         flex-direction: column;
+        align-items: center;
     }
-    #about .profile-card, #about .info-section.redesigned {
+    #about .profile-card {
+        flex: 1 1 100%;
+        max-width: 360px;
+    }
+    #about .info-section.redesigned {
         flex: 1 1 100%;
     }
     .dna-grid {
         flex-direction: column;
     }
-    .edu-cert-grid {
-        flex-direction: column;
-    }
+
 }
 
 @media (max-width: 600px) {
@@ -2378,5 +2850,183 @@ input[type="submit"]:hover {
     }
     .progress-percent {
         text-align: left;
+    }
+}
+
+/* Optimize About section to fit in desktop viewports without vertical scrolling */
+@media (min-width: 993px) {
+    #about {
+        padding: 40px 20px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .about-container {
+        padding: 30px 40px;
+        width: 100%;
+        max-height: 96vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .section-title {
+        margin-bottom: 25px;
+        font-size: clamp(2rem, 3.5vh, 2.5rem);
+    }
+
+    .about-content {
+        gap: 30px;
+    }
+
+    /* Profile Card */
+    .profile-card {
+        max-width: 290px;
+    }
+
+    #about .profile-img-container {
+        width: 200px;
+        height: 235px;
+        margin: 0 auto 15px;
+    }
+
+    .pc-ring-glow {
+        width: 190px;
+        height: 190px;
+    }
+
+    #about .profile-img {
+        width: 180px;
+    }
+
+    .pc-float-db { top: 125px; left: -6px; }
+    .pc-float-lock { top: 15px; right: 15px; }
+    .pc-float-code { top: 180px; right: -6px; }
+
+    .pc-float-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+    }
+
+    .available-tag {
+        padding: 5px 14px;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .profile-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+
+    .subtext {
+        font-size: 0.88rem;
+        margin-bottom: 15px;
+    }
+
+    .social-icons {
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .pc-contact-btn {
+        padding: 12px 22px;
+        font-size: 0.95rem;
+    }
+
+    /* Info Section */
+    #about .info-section.redesigned {
+        gap: 15px;
+    }
+
+    .about-new-card {
+        padding: 22px 26px;
+    }
+
+    .about-new-card h2 {
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .about-new-card p {
+        font-size: 14.5px;
+        line-height: 1.55;
+    }
+
+    .cyber-divider {
+        margin: 16px 0;
+    }
+
+    .focus-grid {
+        gap: 12px;
+    }
+
+    .focus-item {
+        padding: 8px 14px;
+        border-radius: 10px;
+    }
+
+    .focus-icon {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+    }
+
+    .focus-item span {
+        font-size: 13px;
+    }
+
+    .focus-grid--3col .focus-item {
+        flex: 1 1 calc(33.333% - 12px);
+    }
+
+    /* Current Focus Card */
+    .progress-container {
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .progress-row {
+        gap: 12px;
+    }
+
+    .progress-label {
+        width: 130px;
+        font-size: 13px;
+    }
+
+    .progress-bar-bg {
+        height: 7px;
+    }
+
+    .progress-percent {
+        font-size: 13px;
+        width: 35px;
+    }
+
+    /* Quote Card */
+    .quote-card {
+        padding: 16px 24px;
+        gap: 15px;
+    }
+
+    .quote-icon {
+        font-size: 24px;
+    }
+
+    .quote-card p {
+        font-size: 14.5px;
+        line-height: 1.55;
     }
 }

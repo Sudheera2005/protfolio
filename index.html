@@ -91,6 +91,10 @@
                             </button>
                         </a>
                     </div>
+                    <div class="student-badge">
+                        <i class='bx bx-graduation'></i>
+                        <span>Final Year CS Student</span>
+                    </div>
                     <div class="home_icon">
                         <a href="https://github.com/Sudheera2005" target="_blank" rel="noopener"
                             aria-label="GitHub Profile">
@@ -121,13 +125,52 @@
                 <div class="about-content">
                     <!-- ── LEFT: Photo card ────────────────────────────── -->
                     <div class="profile-card" data-aos="fade-right">
+
+                        <!-- Cyber architecture background layer -->
+                        <div class="pc-bg-layer" aria-hidden="true">
+                            <!-- Network topology nodes -->
+                            <div class="pc-node" style="top:8%;  left:12%"></div>
+                            <div class="pc-node" style="top:18%; left:78%; animation-delay:1.2s"></div>
+                            <div class="pc-node" style="top:62%; left:8%;  animation-delay:2.4s"></div>
+                            <div class="pc-node" style="top:72%; left:82%; animation-delay:0.8s"></div>
+                            <div class="pc-node" style="top:40%; left:88%; animation-delay:1.8s"></div>
+
+                            <!-- Architecture connection lines -->
+                            <div class="pc-wire pc-wire-h" style="top:8%;  left:12%; width:60%; animation-delay:0.3s">
+                            </div>
+                            <div class="pc-wire pc-wire-v" style="top:8%;  left:78%; height:11%; animation-delay:0.5s">
+                            </div>
+                            <div class="pc-wire pc-wire-h" style="top:62%; left:8%;  width:74%; animation-delay:1.0s">
+                            </div>
+                            <div class="pc-wire pc-wire-v" style="top:18%; left:78%; height:44%; animation-delay:1.5s">
+                            </div>
+                            <div class="pc-wire pc-wire-h" style="top:40%; left:8%;  width:80%; animation-delay:2.0s">
+                            </div>
+
+                            <!-- Floating code / hex tokens -->
+                            <span class="pc-token" style="top:12%; left:20%; animation-delay:0s"> 0xFF</span>
+                            <span class="pc-token" style="top:28%; left:55%; animation-delay:1.4s">SSH_KEY</span>
+                            <span class="pc-token" style="top:50%; left:14%; animation-delay:0.7s">01101</span>
+                            <span class="pc-token" style="top:66%; left:60%; animation-delay:2.1s">{ }</span>
+                            <span class="pc-token" style="top:82%; left:30%; animation-delay:3.0s">API</span>
+                            <span class="pc-token" style="top:36%; left:72%; animation-delay:1.8s">0x4A</span>
+                        </div>
+
+                        <!-- Decorative floating tech icons -->
+                        <div class="pc-float-icon pc-float-db" aria-hidden="true"><i class='bx bx-data'></i></div>
+                        <div class="pc-float-icon pc-float-lock" aria-hidden="true"><i class='bx bx-lock'></i></div>
+                        <div class="pc-float-icon pc-float-code" aria-hidden="true"><i class='bx bx-code-alt'></i></div>
+
+                        <!-- Profile photo with ring glow -->
                         <div class="profile-img-container">
-                            <img src="./Image/about_main.png" alt="Sudheera Perera – Full Stack Developer"
+                            <div class="pc-ring-glow" aria-hidden="true"></div>
+                            <img src="./Image/about_main_back removed .png" alt="Sudheera Perera – Software Developer"
                                 class="profile-img">
                         </div>
-                        <div class="available-tag"><span class="status-dot"></span> Available for work</div>
+
+                        <div class="available-tag"> Available for work</div>
                         <h2>Hello, I'm <span class="highlight">Sudheera Perera</span></h2>
-                        <p class="subtext">Backend Developer &amp; Cybersecurity Enthusiast</p>
+                        <p class="subtext">Backend Developer &amp;<br>Cybersecurity Enthusiast</p>
                         <div class="social-icons">
                             <a href="https://github.com/Sudheera2005" target="_blank" rel="noopener"
                                 aria-label="GitHub">
@@ -138,20 +181,11 @@
                                 <i class='bx bxl-linkedin-square'></i>
                             </a>
                         </div>
-                        <a href="#contact">
-                            <button class="contact-button">Connect with me <i class='bx bx-right-arrow-alt'></i></button>
+                        <a href="#contact" class="pc-cta-link">
+                            <button class="contact-button pc-contact-btn">Connect with me <i
+                                    class='bx bx-right-arrow-alt'></i></button>
                         </a>
 
-                        <!-- NEW: System Status Card -->
-                        <div class="system-status-card">
-                            <h3 class="status-title">SYSTEM STATUS</h3>
-                            <ul class="status-list">
-                                <li><span class="status-indicator"></span> Available for Work</li>
-                                <li><span class="status-indicator"></span> Backend Development</li>
-                                <li><span class="status-indicator"></span> Security Focused</li>
-                                <li><span class="status-indicator"></span> Open to Opportunities</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <!-- ── RIGHT: Redesigned Info section ────────────────────────────── -->
@@ -159,101 +193,71 @@
                         <!-- Section 1: Who I Am -->
                         <div class="about-new-card who-i-am-card">
                             <h2><i class='bx bx-user'></i> Who I Am</h2>
-                            <p>I'm a Backend Developer and Cybersecurity Enthusiast who enjoys building secure, scalable, and efficient systems. I enjoy transforming ideas into real-world applications that solve meaningful problems.</p>
+                            <p>Software developer with a cybersecurity major — I like understanding how systems break
+                                so I can build ones that don't. I focus on software and security architecture: Python,
+                                Linux, networking, and designing systems with access control and security built in from
+                                day one. I've architected end-to-end systems for real clients, including an enterprise
+                                logistics platform and e-commerce applications, and I stay sharp through CTFs and
+                                hackathons, where I've placed and won across several inter-university competitions.</p>
                             <hr class="cyber-divider">
-                            <div class="focus-grid">
-                                <div class="focus-item">
-                                    <div class="focus-icon"><i class='bx bx-code-alt'></i></div>
-                                    <span>Backend Development</span>
-                                </div>
+                            <div class="focus-grid focus-grid--3col">
                                 <div class="focus-item">
                                     <div class="focus-icon"><i class='bx bx-shield-quarter'></i></div>
-                                    <span>Cybersecurity &amp; System Security</span>
+                                    <span>Software &amp; Security Architecture</span>
+                                </div>
+                                <div class="focus-item">
+                                    <div class="focus-icon"><i class='bx bx-code-alt'></i></div>
+                                    <span>Backend Development (Python, PHP, Node.js)</span>
                                 </div>
                                 <div class="focus-item">
                                     <div class="focus-icon"><i class='bx bx-network-chart'></i></div>
-                                    <span>Networking &amp; Infrastructure</span>
-                                </div>
-                                <div class="focus-item">
-                                    <div class="focus-icon"><i class='bx bx-bot'></i></div>
-                                    <span>AI &amp; Automation</span>
+                                    <span>Network Security &amp; Infrastructure</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Section 2: Technical DNA -->
-                        <div class="about-new-card tech-dna-card">
-                            <h2><i class='bx bx-dna'></i> Technical DNA</h2>
-                            <div class="dna-grid">
-                                <div class="dna-item">
-                                    <div class="dna-icon"><i class='bx bx-shield-plus'></i></div>
-                                    <h3>Security First</h3>
-                                    <p>I prioritize secure development practices and build with security in mind from the beginning.</p>
-                                </div>
-                                <div class="dna-item">
-                                    <div class="dna-icon"><i class='bx bx-terminal'></i></div>
-                                    <h3>Problem Solver</h3>
-                                    <p>I enjoy debugging, optimizing, and solving complex technical challenges.</p>
-                                </div>
-                                <div class="dna-item">
-                                    <div class="dna-icon"><i class='bx bx-rocket'></i></div>
-                                    <h3>Continuous Learner</h3>
-                                    <p>I continuously explore emerging technologies and improve my skills.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Section 3: Current Focus -->
+
+                        <!-- Section 4: Current Focus -->
                         <div class="about-new-card current-focus-card">
                             <h2><i class='bx bx-target-lock'></i> Current Focus</h2>
                             <div class="progress-container">
                                 <div class="progress-row">
-                                    <span class="progress-label">Backend Development</span>
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 90%;"></div></div>
+                                    <span class="progress-label">Backend Architecture</span>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 90%;"></div>
+                                    </div>
                                     <span class="progress-percent">90%</span>
                                 </div>
                                 <div class="progress-row">
                                     <span class="progress-label">Cybersecurity</span>
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 80%;"></div>
+                                    </div>
                                     <span class="progress-percent">80%</span>
                                 </div>
                                 <div class="progress-row">
                                     <span class="progress-label">Networking</span>
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 70%;"></div></div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 70%;"></div>
+                                    </div>
                                     <span class="progress-percent">70%</span>
                                 </div>
                                 <div class="progress-row">
-                                    <span class="progress-label">AI &amp; Automation</span>
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+                                    <span class="progress-label">AI & Automation</span>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" style="width: 60%;"></div>
+                                    </div>
                                     <span class="progress-percent">60%</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Section 4: Education & Certifications -->
-                        <div class="edu-cert-grid">
-                            <a href="./education.html" class="edu-nav-card">
-                                <div class="nav-icon"><i class='bx bx-book-open'></i></div>
-                                <div class="nav-content">
-                                    <h3>Education Timeline</h3>
-                                    <p>Explore my academic journey and milestones.</p>
-                                </div>
-                                <div class="nav-arrow"><i class='bx bx-right-arrow-alt'></i></div>
-                            </a>
-                            <a href="./certifications.html" class="edu-nav-card">
-                                <div class="nav-icon"><i class='bx bx-trophy'></i></div>
-                                <div class="nav-content">
-                                    <h3>Certifications</h3>
-                                    <p>View my professional certifications and achievements.</p>
-                                </div>
-                                <div class="nav-arrow"><i class='bx bx-right-arrow-alt'></i></div>
-                            </a>
-                        </div>
-
                         <!-- Bottom Section: Quote -->
                         <div class="quote-card">
                             <i class='bx bxs-quote-alt-left quote-icon'></i>
-                            <p>"Building secure systems, solving complex problems, and learning every day to create better technology."</p>
+                            <p>"I build to understand the fundamentals first, then architect deliberately once I know
+                                where the design needs to hold."</p>
                         </div>
                     </div>
                 </div>
@@ -279,6 +283,9 @@
                         <div class="skills"><i class='bx bxl-python'></i>
                             <p>Python</p>
                         </div>
+                        <div class="skills"><i class='bx bxl-django'></i>
+                            <p>Django</p>
+                        </div>
                         <div class="skills"><i class='bx bxl-html5'></i>
                             <p>HTML5</p>
                         </div>
@@ -289,13 +296,22 @@
                             <p>JavaScript</p>
                         </div>
                         <div class="skills"><i class='bx bxl-react'></i>
-                            <p>React</p>
+                            <p>React.js</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-layer'></i>
+                            <p>Next.js</p>
                         </div>
                         <div class="skills"><i class='bx bxl-nodejs'></i>
                             <p>Node.js</p>
                         </div>
-                        <div class="skills"><i class='bx bxs-file-json'></i>
-                            <p>JSON</p>
+                        <div class="skills"><i class='bx bx-key'></i>
+                            <p>JWT</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-shield-quarter'></i>
+                            <p>OAuth</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-code-block'></i>
+                            <p>REST APIs</p>
                         </div>
                         <div class="skills"><i class='bx bxl-git'></i>
                             <p>Git</p>
@@ -305,6 +321,12 @@
                         </div>
                         <div class="skills"><i class='bx bxl-linux'></i>
                             <p>Linux</p>
+                        </div>
+                        <div class="skills"><i class='bx bxl-tux'></i>
+                            <p>Ubuntu</p>
+                        </div>
+                        <div class="skills"><i class='bx bxs-terminal'></i>
+                            <p>Kali Linux</p>
                         </div>
                         <div class="skills"><i class='bx bxl-docker'></i>
                             <p>Docker</p>
@@ -316,6 +338,9 @@
                         <div class="skills"><i class='bx bxl-python'></i>
                             <p>Python</p>
                         </div>
+                        <div class="skills"><i class='bx bxl-django'></i>
+                            <p>Django</p>
+                        </div>
                         <div class="skills"><i class='bx bxl-html5'></i>
                             <p>HTML5</p>
                         </div>
@@ -326,13 +351,22 @@
                             <p>JavaScript</p>
                         </div>
                         <div class="skills"><i class='bx bxl-react'></i>
-                            <p>React</p>
+                            <p>React.js</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-layer'></i>
+                            <p>Next.js</p>
                         </div>
                         <div class="skills"><i class='bx bxl-nodejs'></i>
                             <p>Node.js</p>
                         </div>
-                        <div class="skills"><i class='bx bxs-file-json'></i>
-                            <p>JSON</p>
+                        <div class="skills"><i class='bx bx-key'></i>
+                            <p>JSON Web Token (JWT)</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-shield-quarter'></i>
+                            <p>OAuth</p>
+                        </div>
+                        <div class="skills"><i class='bx bx-code-block'></i>
+                            <p>REST APIs</p>
                         </div>
                         <div class="skills"><i class='bx bxl-git'></i>
                             <p>Git</p>
@@ -343,11 +377,127 @@
                         <div class="skills"><i class='bx bxl-linux'></i>
                             <p>Linux</p>
                         </div>
+                        <div class="skills"><i class='bx bxl-tux'></i>
+                            <p>Ubuntu</p>
+                        </div>
+                        <div class="skills"><i class='bx bxs-terminal'></i>
+                            <p>Kali Linux</p>
+                        </div>
                         <div class="skills"><i class='bx bxl-docker'></i>
                             <p>Docker</p>
                         </div>
                         <div class="skills"><i class='bx bx-data'></i>
                             <p>SQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Skills Grid -->
+                <div class="skills-detailed-container">
+                    <!-- Technical Skills & Tools -->
+                    <div class="skills-tech-grid">
+
+                        <!-- Languages & Frameworks Card -->
+                        <div class="skills-category-card" data-aos="fade-up">
+                            <div class="card-header">
+                                <i class='bx bx-code-alt'></i>
+                                <h3><span>&gt; </span>Languages &amp; Frameworks</h3>
+                            </div>
+                            <div class="skills-pill-list">
+                                <span class="skill-pill">Python</span>
+                                <span class="skill-pill">JavaScript</span>
+                                <span class="skill-pill">PHP</span>
+                                <span class="skill-pill">C#</span>
+                                <span class="skill-pill">React</span>
+                                <span class="skill-pill">Next.js</span>
+                                <span class="skill-pill">Node.js</span>
+                                <span class="skill-pill">Django</span>
+                                <span class="skill-pill">Flutter</span>
+                            </div>
+                        </div>
+
+                        <!-- Security & Networking Card -->
+                        <div class="skills-category-card" data-aos="fade-up">
+                            <div class="card-header">
+                                <i class='bx bx-shield-quarter'></i>
+                                <h3><span>&gt; </span>Security &amp; Networking</h3>
+                            </div>
+                            <div class="skills-pill-list">
+                                <span class="skill-pill">Network Security</span>
+                                <span class="skill-pill">Cybersecurity</span>
+                                <span class="skill-pill">Ethical Hacking</span>
+                                <span class="skill-pill">Digital Forensics</span>
+                                <span class="skill-pill">Access Control</span>
+                                <span class="skill-pill">JWT / Authentication</span>
+                                <span class="skill-pill">OAuth</span>
+                                <span class="skill-pill">pfSense</span>
+                                <span class="skill-pill">Computer Networking</span>
+                                <span class="skill-pill">Linux (Ubuntu)</span>
+                            </div>
+                        </div>
+
+                        <!-- Databases & Architecture Card -->
+                        <div class="skills-category-card" data-aos="fade-up">
+                            <div class="card-header">
+                                <i class='bx bx-data'></i>
+                                <h3><span>&gt; </span>Databases &amp; Architecture</h3>
+                            </div>
+                            <div class="skills-pill-list">
+                                <span class="skill-pill">MySQL</span>
+                                <span class="skill-pill">PostgreSQL</span>
+                                <span class="skill-pill">REST APIs</span>
+                                <span class="skill-pill">Software Architecture</span>
+                                <span class="skill-pill">System Design</span>
+                                <span class="skill-pill">Database Design</span>
+                                <span class="skill-pill">Payment Gateway Integration</span>
+                            </div>
+                        </div>
+
+                        <!-- Tools & Practices Card -->
+                        <div class="skills-category-card" data-aos="fade-up">
+                            <div class="card-header">
+                                <i class='bx bx-git-branch'></i>
+                                <h3><span>&gt; </span>Tools &amp; Practices</h3>
+                            </div>
+                            <div class="skills-pill-list">
+                                <span class="skill-pill">Git</span>
+                                <span class="skill-pill">Cypress (Test Automation)</span>
+                                <span class="skill-pill">Agile / Scrum</span>
+                                <span class="skill-pill">QA &amp; Manual Testing</span>
+                                <span class="skill-pill">VirtualBox (Virtualization)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leadership & Soft Skills -->
+                    <div class="skills-leadership-section" data-aos="fade-up">
+                        <div class="leadership-card">
+                            <div class="card-header">
+                                <i class='bx bx-group'></i>
+                                <h3><span>[</span> Leadership &amp; Soft Skills <span>]</span></h3>
+                            </div>
+                            <div class="leadership-grid">
+                                <div class="leadership-item">
+                                    <h4>Leadership</h4>
+                                    <p>Led a 4-person team through a 3-sprint Agile project as Scrum Master and system
+                                        architect</p>
+                                </div>
+                                <div class="leadership-item">
+                                    <h4>Team Management</h4>
+                                    <p>Coordinated cross-functional roles (dev, QA, business analysis) across project
+                                        phases</p>
+                                </div>
+                                <div class="leadership-item">
+                                    <h4>Problem Solving</h4>
+                                    <p>Sharpened through competitive CTFs and hackathons, placing/winning across
+                                        inter-university competitions</p>
+                                </div>
+                                <div class="leadership-item">
+                                    <h4>Communication</h4>
+                                    <p>Delivered technical systems for real clients, translating requirements into
+                                        working architecture</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,14 +527,15 @@
                         </div>
                     </div>
                     <div class="project_details">
-                        <p>Designed and developed the backend and admin portal for an e-commerce book-selling website for a client named Bharana. Built as a freelance project to handle robust product and order management.</p>
+                        <p>Designed and developed the backend and admin portal for an e-commerce book-selling website
+                            for a client named Bharana. Built as a freelance project to handle robust product and order
+                            management.</p>
                         <div class="project_tags">
                             <span class="tag">Backend Development</span>
                             <span class="tag">E-commerce</span>
                             <span class="tag">Admin Portal</span>
                         </div>
-                        <a href="https://www.bharana.lk/" target="_blank" rel="noopener"
-                            class="project_link">
+                        <a href="https://www.bharana.lk/" target="_blank" rel="noopener" class="project_link">
                             View Project <i class='bx bx-link-external'></i>
                         </a>
                     </div>
@@ -403,7 +554,8 @@
                     </div>
                     <div class="project_details">
                         <p>A full-stack logistics solution integrating a Django backend with a React administrative
-                            dashboard and a Flutter-based mobile app for streamlined supply chain tracking. This was a group project completed using agile methodology across three sprints.</p>
+                            dashboard and a Flutter-based mobile app for streamlined supply chain tracking. This was a
+                            group project completed using agile methodology across three sprints.</p>
                         <div class="project_tags">
                             <span class="tag">Django</span>
                             <span class="tag">React</span>
