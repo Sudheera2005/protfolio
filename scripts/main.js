@@ -95,8 +95,8 @@ window.addEventListener('scroll', setActiveNav);
    ============================================================ */
 
 const canvas = document.getElementById('bgCanvas');        // the hidden <canvas>
-const ctx    = canvas.getContext('2d');                    // 2D drawing context
-canvas.width  = window.innerWidth;
+const ctx = canvas.getContext('2d');                    // 2D drawing context
+canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
@@ -119,17 +119,17 @@ class Particle {
 
     /** Place the particle at a random position with random velocity */
     reset() {
-        this.x        = Math.random() * canvas.width;
-        this.y        = Math.random() * canvas.height;
-        this.size     = Math.random() * 2.5 + 0.5;    // radius between 0.5 and 3px
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 0.5;    // radius between 0.5 and 3px
         this.baseSize = this.size;                     // remember original size
-        this.density  = Math.random() * 25 + 1;       // repulsion strength
+        this.density = Math.random() * 25 + 1;       // repulsion strength
 
         // Colour: alternates between reddish-pink (340–370°) and purple (260–300°)
         const hue = Math.random() < 0.5
             ? Math.random() * 30 + 340               // pinks/reds
             : Math.random() * 40 + 260;              // purples
-        this.color  = `hsla(${hue}, 80%, 65%, 0.75)`;
+        this.color = `hsla(${hue}, 80%, 65%, 0.75)`;
 
         this.speedX = (Math.random() - 0.5) * 1.2;   // horizontal drift speed
         this.speedY = (Math.random() - 0.5) * 1.2;   // vertical drift speed
@@ -154,8 +154,8 @@ class Particle {
     update() {
         // ── Mouse repulsion ──────────────────────────────────
         if (mouse.x !== null) {
-            const dx       = mouse.x - this.x;
-            const dy       = mouse.y - this.y;
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < mouse.radius) {
@@ -173,8 +173,8 @@ class Particle {
         }
 
         // ── Wall bouncing ────────────────────────────────────
-        if (this.x < 0 || this.x > canvas.width)  this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height)  this.speedY *= -1;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
 
         // Move the particle
         this.x += this.speedX;
@@ -200,15 +200,15 @@ function initParticles() {
 function connectParticles() {
     for (let a = 0; a < particles.length; a++) {
         for (let b = a + 1; b < particles.length; b++) {
-            const dx   = particles[a].x - particles[b].x;
-            const dy   = particles[a].y - particles[b].y;
+            const dx = particles[a].x - particles[b].x;
+            const dy = particles[a].y - particles[b].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < 110) {
                 // Opacity: 0 at 110px distance, up to 0.5 at 0px distance
                 const opacity = (1 - dist / 110) * 0.5;
                 ctx.strokeStyle = `rgba(255, 7, 58, ${opacity})`;
-                ctx.lineWidth   = 0.8;
+                ctx.lineWidth = 0.8;
                 ctx.beginPath();
                 ctx.moveTo(particles[a].x, particles[a].y);
                 ctx.lineTo(particles[b].x, particles[b].y);
@@ -233,11 +233,11 @@ function animate() {
 // Track mouse position for repulsion effect
 window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
 // Clear mouse position when cursor leaves the window
-window.addEventListener('mouseout',  ()  => { mouse.x = null; mouse.y = null; });
+window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
 
 // Re-initialise canvas & particles on window resize (handles orientation change too)
 window.addEventListener('resize', () => {
-    canvas.width  = window.innerWidth;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     initParticles();
 });
@@ -259,13 +259,14 @@ const textElement = document.getElementById('typing-text');
 // Words that will cycle in the hero heading
 const textArray = [
     'Sudheera Perera',
-    'A Developer',
-    'A Tech Enthusiast',
-    'A Cybersecurity Enthusiast'
+    'A Software Developer',
+    'A Security-Minded Architect',
+    'A Backend Developer',
+    'A Systems Builder'
 ];
 
-let textIndex  = 0;     // which word we are currently displaying
-let charIndex  = 0;     // how many characters of that word are shown
+let textIndex = 0;     // which word we are currently displaying
+let charIndex = 0;     // how many characters of that word are shown
 let isDeleting = false; // whether we are currently erasing
 
 function typeEffect() {
@@ -287,7 +288,7 @@ function typeEffect() {
     // Finished deleting — move to next word and pause briefly
     if (isDeleting && charIndex === 0) {
         isDeleting = false;
-        textIndex  = (textIndex + 1) % textArray.length; // wrap around
+        textIndex = (textIndex + 1) % textArray.length; // wrap around
         return setTimeout(typeEffect, 400);
     }
 
@@ -318,17 +319,17 @@ function createVapor() {
         'rgba(200, 180, 255, 0.35)'
     ];
 
-    const vapor    = document.createElement('div');
+    const vapor = document.createElement('div');
     vapor.className = 'vapor';
 
     // Randomise each wisp so they look organic
-    const size     = Math.random() * 28 + 8;           // pixel diameter
+    const size = Math.random() * 28 + 8;           // pixel diameter
     const duration = Math.random() * 5 + 3;            // seconds to float up
-    const delay    = Math.random() * 1.5;              // stagger start
-    const color    = colors[Math.floor(Math.random() * colors.length)];
-    const tx       = (Math.random() - 0.5) * 90;      // horizontal drift (px)
-    const ty       = -(Math.random() * 90 + 40);      // upward travel (negative = up)
-    const scale    = Math.random() * 2.5 + 1;         // how big it grows
+    const delay = Math.random() * 1.5;              // stagger start
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const tx = (Math.random() - 0.5) * 90;      // horizontal drift (px)
+    const ty = -(Math.random() * 90 + 40);      // upward travel (negative = up)
+    const scale = Math.random() * 2.5 + 1;         // how big it grows
 
     // Apply all values as inline CSS (animation picks up the CSS custom props)
     vapor.style.cssText = `
@@ -358,11 +359,11 @@ document.querySelectorAll('.project_card').forEach(card => {
     if (!overlay) return; // some cards may not have an overlay
 
     card.addEventListener('mouseenter', () => {
-        overlay.style.opacity   = '1';
+        overlay.style.opacity = '1';
         overlay.style.transform = 'translateY(0)';      // slide up into view
     });
     card.addEventListener('mouseleave', () => {
-        overlay.style.opacity   = '0';
+        overlay.style.opacity = '0';
         overlay.style.transform = 'translateY(100%)';   // slide back down
     });
 });
@@ -384,7 +385,7 @@ document.querySelectorAll('.project_card').forEach(card => {
    6. Restore the button
    ============================================================ */
 
-const form            = document.getElementById('contact-form');
+const form = document.getElementById('contact-form');
 const responseMessage = document.getElementById('responseMessage');
 
 if (form) {
@@ -394,13 +395,13 @@ if (form) {
         // ── Loading state ────────────────────────────────────
         const submitBtn = form.querySelector('input[type="submit"]');
         const origValue = submitBtn.value;
-        submitBtn.value    = 'Sending…';
+        submitBtn.value = 'Sending…';
         submitBtn.disabled = true; // prevent double-submissions
 
         // ── Collect form values ──────────────────────────────
         const formData = {
-            name:    document.getElementById('name').value,
-            email:   document.getElementById('email').value,
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
             message: document.getElementById('message').value
         };
 
@@ -416,7 +417,7 @@ if (form) {
             if (response.ok) {
                 // ── Success path ─────────────────────────────
                 responseMessage.textContent = '✓ Message sent! I\'ll be in touch soon.';
-                responseMessage.className   = 'success'; // CSS turns this green
+                responseMessage.className = 'success'; // CSS turns this green
                 form.reset();                            // clear all fields
             } else {
                 throw new Error('Server returned non-OK status');
@@ -424,10 +425,10 @@ if (form) {
         } catch {
             // ── Error path (network fail or server error) ────
             responseMessage.textContent = '✗ Something went wrong. Please try again or email me directly.';
-            responseMessage.className   = 'error'; // CSS turns this red
+            responseMessage.className = 'error'; // CSS turns this red
         } finally {
             // Always restore the button regardless of success/failure
-            submitBtn.value    = origValue;
+            submitBtn.value = origValue;
             submitBtn.disabled = false;
         }
     });
