@@ -41,14 +41,3 @@ The project is built around a **"Software Architecture meets Cybersecurity"** vi
 └── Image/            # Asset files, icons, and portfolio screenshots
 ```
 
----
-
-## 💻 Local Setup & Development
-Since the project is a static front-end application, there are no build steps required:
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Sudheera2005/protfolio.git
-   ```
-2. Open `index.html` in any web browser.
-3. To customize colors, margins, or fonts, modify variables inside the `:root` selector of `styles/main.css`.
